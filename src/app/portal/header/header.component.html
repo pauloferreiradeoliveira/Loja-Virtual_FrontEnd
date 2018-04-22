@@ -1,0 +1,96 @@
+<!-- Começo do Header -->
+<header class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Botão Para mostra o menu -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+  </button>
+  <!-- Logo -->
+  <a href="">
+    <div class="navbar-brand" id="logo">
+      <img class="logo" src="assets/images/logo.png" href="#">
+    </div>
+  </a>
+  <!-- Pesquisa -->
+  <div class="collapse navbar-collapse navbarSupportedContent">
+    <div class="form-group col-11 buscar">
+      <div class="input-group">
+        <input type="text" class="form-control" id="buscar" placeholder="Buscar">
+        <a href="#">
+          <img src="assets/images/ic_search_azul.svg">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <!-- Cadastro -->
+    <div class="collapse navbar-collapse  navbarSupportedContent  ">
+      <img src="assets/images/user2.png" class="mx-center icon">
+      <a href="#login" id="login">Login</a>&nbsp;ou&nbsp;
+      <a href="#cadastrar" id="cadastrar">Cadastrar</a>&nbsp;
+    </div>
+    <!-- Começo - Dropdowns - Carrinho  -->
+    <div class="dropdown show mr-2 ">
+      <!-- O Que Vai Aparecer -->
+      <div class="dropleft" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- position: Para Um elemento ficar encima do outro -->
+        <img src="assets/images/carrinho.png" class="p-2 position-absolute">
+        <span class="badge badge-pill badge-primary position-relative" id="qd">0</span>
+      </div>
+      <div class="dropdown-menu dropdown-menu-right" style="width: 250px">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;&nbsp;</span>
+        </button>
+        <h6 class="dropdown-header">Livros Comprados</h6>
+        <div class="dropdown-divider"></div>
+        <!-- Livros -->
+        <article id="livros">
+        </article>
+        <!-- Fim - Livros -->
+        <span class="dropdown-item active" id="valorTotal" href="#">Valor Total: R$ 0,00</span>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item">
+          <a class="btn btn-success" href="#carrinho" id="finalizar">
+            <img src="assets/images/ic_shopping_cart_white_24px.svg">Finalizar Comprar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Fim - Dropdowns - Carrinho  -->
+  </div>
+</header>
+<!-- Fim Header -->
+<!-- Começo do Nav -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="collapse navbar-collapse navbarSupportedContent ">
+    <ul class="navbar-nav mr-auto mx-auto">
+      <!-- Categorias -->
+      <li class="nav-item ">
+        <a class="nav-link" id="romance" href="#romance">Romance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="ficcao" href="#ficcao">Ficção Científica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="policial" href="#policial">Policial</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="autoajuda" href="#autoajuda">Auto-ajuda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="humor" href="#humor">Humor</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="suspense" href="#suspense">Suspense</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="psicologia" href="#psicologia">Psicologia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="religiosos" href="#religiosos">Religiosos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contos" href="#contos">Contos</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Fim - Nav (Onde estao as Categorias) -->
