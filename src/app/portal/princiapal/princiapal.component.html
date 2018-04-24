@@ -31,24 +31,7 @@
       <!-- Cards  -->
       <div class="card-deck">
         <div class="row">
-            <div class="col-6 col-md-4 col-lg-3 sem" *ngFor="let produto of principalProdutos">
-            <a href="#">
-              <div class="card" >
-                <img class="card-img-top" src="{{ produto.foto }}" alt="Card image cap">
-                <div class="card-body text-center">
-                  <h5 class="card-title">{{ produto.nome }}</h5>
-                  <p class="card-text">{{ produto.preco }}</p>
-                  <p class="card-text" [hidden]="produto.parcela == 1">
-                    <small class="text-muted">{{ produto.parcela }}x de {{ produto.getValordaParcela | async }}</small>
-                  </p>
-                </div>
-                <div class="card-footer text-muted ">
-                  <button type="button" class="btn comprar ">
-                    <img src="assets/images/ic_shopping_cart_white_24px.svg"> Adicionar</button>
-                </div>
-              </div>
-            </a>
-          </div>
+          <app-card class="col-6 col-md-4 col-lg-3 sem" *ngFor="let p of principalProdutos" [produto]="p"></app-card>
         </div>
       </div>
     </article>

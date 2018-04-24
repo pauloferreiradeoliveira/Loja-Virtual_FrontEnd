@@ -13,6 +13,12 @@ import { HeaderComponent } from './header/header.component';
 import { PrinciapalComponent } from './princiapal/princiapal.component';
 import { CategoriasService } from '../comum/servicos/categorias.service';
 import { ProdutosService } from '../comum/servicos/produtos.service';
+import { ComumPortalModule } from './comum/comum-portal.module';
+import { ComumMmodule } from '../comum/comum.module';
+import { CarrinhoService } from './comum/servicos/carrinho.service';
+
+
+
 
 
 @NgModule({
@@ -21,16 +27,16 @@ import { ProdutosService } from '../comum/servicos/produtos.service';
     PortalRoutes,
     HttpModule,
     BsDropdownModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    ComumPortalModule,
+    ComumMmodule
+
   ],
   declarations: [
     PortalComponent,
     HeaderComponent,
     PrinciapalComponent
   ],
-  providers: [
-    CategoriasService,
-    ProdutosService
-  ]
+  providers: [CarrinhoService]
 })
 export class PortalModule { }

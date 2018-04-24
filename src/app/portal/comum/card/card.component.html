@@ -1,0 +1,18 @@
+<div>
+  <a href="#">
+    <div class="card" >
+      <img class="card-img-top" src="{{ produto.foto }}" alt="Card image cap">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ produto.nome  }}</h5>
+        <p class="card-text">{{ produto.preco | dinheiro }}</p>
+        <p class="card-text" [hidden]="produto.parcela == 1">
+          <small class="text-muted">{{ produto.parcela }}x de {{ produto.preco / produto.parcela | dinheiro }}</small>
+        </p>
+      </div>
+      <div class="card-footer text-muted ">
+        <button type="button" class="btn comprar" (click)="addCarrinho()">
+          <img src="assets/images/ic_shopping_cart_white_24px.svg"> Adicionar</button>
+      </div>
+    </div>
+  </a>
+</div>

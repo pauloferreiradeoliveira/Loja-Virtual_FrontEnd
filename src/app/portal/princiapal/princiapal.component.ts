@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Produto } from '../../comum/class/produto';
 import { ProdutosService } from '../../comum/servicos/produtos.service';
+import { CarrinhoService } from '../comum/servicos/carrinho.service';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class PrinciapalComponent implements OnInit, OnDestroy {
   principalProdutos: Produto[];
   subcriber: Subscription;
 
-  constructor(private produtosService: ProdutosService) { }
+  constructor(private produtosService: ProdutosService, private carrinhoService: CarrinhoService) { }
 
   getProdutos() {
     this.subcriber =  this.produtosService.getProduto().subscribe(

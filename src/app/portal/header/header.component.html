@@ -25,7 +25,7 @@
   <div class="d-flex ">
     <!-- Cadastro -->
     <div class="collapse navbar-collapse  navbarSupportedContent" [collapse]="isCollapsed">
-      <img src="assets/images/user2.png" class="mx-center icon">
+      <img src="assets/images/login.svg" class="mx-center icon">
       <div class="mx-center cadastro">
         <p id="login">Olá, Bem Vindo!</p>
         <a href="#cadastrar" id="cadastrar">Entre ou se Cadastre-se</a>
@@ -36,8 +36,8 @@
       <!-- O Que Vai Aparecer -->
       <div class="dropleft" id="dropdownMenuButton" dropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <!-- position: Para Um elemento ficar encima do outro -->
-        <img src="assets/images/carrinho.png" class="p-2 position-absolute">
-        <span class="badge badge-pill badge-primary position-relative" id="qd">0</span>
+        <img src="assets/images/car.svg" class="p-2 position-absolute">
+        <span class="badge badge-pill badge-danger position-relative" id="qd">{{ produtos? produtos.length : 0 }}</span>
       </div>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu style="width: 250px">
         <button type="button" class="close" aria-label="Close">
@@ -47,6 +47,12 @@
         <div class="dropdown-divider"></div>
         <!-- Livros -->
         <article id="livros">
+          <ul>
+            <li>dsd</li>
+            <li *ngFor="let n of produtos">
+              {{ n.nome }}
+            </li>
+          </ul>
         </article>
         <!-- Fim - Livros -->
         <span class="dropdown-item active" id="valorTotal" href="#">Valor Total: R$ 0,00</span>
