@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "nome": "Laço Rosa Cetin",
+    "preco": 25.99,
+    "peso": 10,
+    "altura": 1,
+    "largura": 1,
+    "comprimento": 1,
+    "descricao": "outroas",
+    "foto": "assets/dev/1.jpg",
+    "parcela": 1,
+    "idCategoria": 1
+  },
+  {
+    "id": 2,
+    "nome": "Laço Azul Cetin",
+    "preco": 39.99,
+    "peso": 10,
+    "altura": 1,
+    "largura": 1,
+    "comprimento": 1,
+    "descricao": "outroas",
+    "foto": "assets/dev/1.jpg",
+    "parcela": 2,
+    "idCategoria": 1
+  },
+  {
+    "id": 4,
+    "nome": "Laço Rosa Cetin",
+    "preco": 25.99,
+    "peso": 10,
+    "altura": 1,
+    "largura": 1,
+    "comprimento": 1,
+    "descricao": "outroas",
+    "foto": "assets/dev/1.jpg",
+    "parcela": 1,
+    "idCategoria": 1
+  },
+  {
+    "id": 3,
+    "nome": "Laço Azul Cetin",
+    "preco": 100.00,
+    "peso": 10,
+    "altura": 1,
+    "largura": 1,
+    "comprimento": 1,
+    "descricao": "outroas",
+    "foto": "assets/dev/1.jpg",
+    "parcela": 3,
+    "idCategoria": 1
+  },
+  {
+    "id": 4,
+    "nome": "Laço Rosa Cetin",
+    "preco": 25.99,
+    "peso": 10,
+    "altura": 1,
+    "largura": 1,
+    "comprimento": 1,
+    "descricao": "outroas",
+    "foto": "assets/dev/1.jpg",
+    "parcela": 1,
+    "idCategoria": 1
+  }
+]

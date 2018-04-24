@@ -1,0 +1,56 @@
+<!--Principal-->
+<div class="row">
+  <section class="col-12">
+    <article>
+      <!-- Carosel  -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="imagens\promocao\1.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="imagens\promocao\2.jpg" alt="Second slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Proximo</span>
+        </a>
+      </div>
+    </article>
+    <article id="principal">
+      <h5 class="titulos">Os Mais Vendidos</h5>
+      <!-- Cards  -->
+      <div class="card-deck">
+        <div class="row">
+            <div class="col-6 col-md-4 col-lg-3 sem" *ngFor="let produto of principalProdutos">
+            <a href="#">
+              <div class="card" >
+                <img class="card-img-top" src="{{ produto.foto }}" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ produto.nome }}</h5>
+                  <p class="card-text">{{ produto.preco }}</p>
+                  <p class="card-text" [hidden]="produto.parcela == 1">
+                    <small class="text-muted">{{ produto.parcela }}x de {{ produto.getValordaParcela | async }}</small>
+                  </p>
+                </div>
+                <div class="card-footer text-muted ">
+                  <button type="button" class="btn comprar ">
+                    <img src="assets/images/ic_shopping_cart_white_24px.svg"> Adicionar</button>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</div>

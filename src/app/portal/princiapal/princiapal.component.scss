@@ -1,0 +1,45 @@
+
+@import "../../comum/sass/variaveis.sass";
+/*CARDS -  De todos os Produtos*/
+.card-body {
+  height: 120px;
+  padding: 4px !important;
+}
+
+.card-body p {
+  color: #17a55f;
+  font-weight: bolder;
+}
+
+.card-img-top {height: 180px;}
+
+.card {margin-top: 10px;}
+
+.card:hover {box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);}
+
+.card-title {font-size: 15px;}
+
+.comprar{
+  background-color: $corPrimaria;
+  color: $textPrimario;
+  width: 100%;
+}
+/*Fim - Cards*/
+
+a {
+  font-weight: bold;
+  color: $corPrimaria;
+}
+
+a:hover {text-decoration: none;}
+
+.sem {padding: 0 !important;}
+
+.titulos,h1 {
+  border-bottom: 1px solid $corPrimaria;
+  color: $corPrimaria;
+  font-weight: bolder;
+  margin: 20px 0 40px 0;
+  padding-bottom: 10px;
+  width: 100%;
+}
