@@ -47,12 +47,7 @@
         <div class="dropdown-divider"></div>
         <!-- Livros -->
         <article id="livros">
-          <ul>
-            <li>dsd</li>
-            <li *ngFor="let n of produtos">
-              {{ n.nome }}
-            </li>
-          </ul>
+          <app-produto-carrinho *ngFor="let prot of produtos" [produto]="prot" ></app-produto-carrinho>
         </article>
         <!-- Fim - Livros -->
         <span class="dropdown-item active" id="valorTotal" href="#">Valor Total: R$ 0,00</span>

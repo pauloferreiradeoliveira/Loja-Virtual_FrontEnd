@@ -1,0 +1,15 @@
+@import "../../comum/sass/variaveis.sass";
+a{
+ color: $corPrimaria;
+}
+
+p{
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.remover{
+  font-size: 14px;
+  color: $corPrimaria;
+  font-weight: bolder;
+}
