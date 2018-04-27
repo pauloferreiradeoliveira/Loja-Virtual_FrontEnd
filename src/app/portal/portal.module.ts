@@ -39,6 +39,9 @@ import { CategoriasComponent } from './categorias/categorias.component';
     PrinciapalComponent,
     CategoriasComponent
   ],
-  providers: [CarrinhoService, CategoriasResolver]
+  providers: [
+    CarrinhoService,
+    CategoriasResolver
+  ]
 })
 export class PortalModule { }

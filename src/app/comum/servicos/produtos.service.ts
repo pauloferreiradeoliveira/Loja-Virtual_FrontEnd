@@ -18,4 +18,11 @@ export class ProdutosService {
    // return this.resposta;
   }
 
+  getProdutoCategoria(id: number): Observable<Produto[]> {
+
+    return this.http
+        .get(this.lugar)
+        .map(dados => dados.json());
+  }
+
 }

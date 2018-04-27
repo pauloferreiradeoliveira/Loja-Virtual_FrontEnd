@@ -1,0 +1,160 @@
+<h5 class="titulos">Cadastro</h5>
+<form [formGroup]="formulario">
+  <div class="form-row">
+    <!-- Nome -->
+    <div class="form-group col-md-8">
+      <label for="nome">Nome Completo:</label>
+      <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome"
+      [ngClass]="sharedForm.aplicarCssErro('nome')"
+      >
+      <small class="text-muted">
+        Min. 8
+      </small>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="CPF">CPF:</label>
+      <input type="text" class="form-control" formControlName="CPF" id="CPF"  placeholder="CPF"
+      [ngClass]="sharedForm.aplicarCssErro('CPF')"
+      >
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="telefone">Telefone:</label>
+      <input type="text" class="form-control" formControlName="telefone" id="telefone"
+       placeholder="Telefone" [ngClass]="sharedForm.aplicarCssErro('telefone')">
+
+    </div>
+    <div class="form-group col-md-4">
+      <label for="senha">Senha:</label>
+      <input type="password" class="form-control" formControlName="senha" id="senha"
+      placeholder="Senha" [ngClass]="sharedForm.aplicarCssErro('senha')">
+      <small class="text-muted">
+        Min. 8
+      </small>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="confsenha">Confirme a Senha:</label>
+      <input type="password" class="form-control" formControlName="confsenha" id="confsenha"
+       placeholder="Confirme sua Senha" [ngClass]="sharedForm.aplicarCssErro('confsenha')">
+      <small class="text-muted">
+        Min. 8
+      </small>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" formControlName="email" id="email"
+      placeholder="Email" [ngClass]="sharedForm.aplicarCssErro('email')">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="conemail">Confirme seu Email:</label>
+      <input type="text" class="form-control" formControlName="conemail" id="conemail"
+       placeholder="Confirme seu Email" [ngClass]="sharedForm.aplicarCssErro('conemail')">
+    </div>
+  </div>
+  <!-- Parte do Endereço-->
+
+  <h5 class="titulos">Endereço</h5>
+  <div formGroupName="endereco">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputCEP">CEP:</label>
+        <input type="text" class="form-control" id="CEP" placeholder="CEP" formControlName="CEP"
+        [ngClass]="sharedForm.aplicarCssErro('endereco.CEP')">
+      </div>
+      <div class="form-group col-md-7">
+        <label for="rua">Rua:</label>
+        <input type="text" class="form-control" formControlName="rua" id="rua"
+         placeholder="Rua 01" [ngClass]="sharedForm.aplicarCssErro('endereco.rua')">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="numero">Numero:</label>
+        <input type="text" class="form-control" formControlName="numero" id="numero"
+        placeholder="01" [ngClass]="sharedForm.aplicarCssErro('endereco.numero')">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="complemento">Complemento:</label>
+        <input type="text" class="form-control" formControlName="complemento" id="complemento"
+        placeholder="Complemento" [ngClass]="sharedForm.aplicarCssErro('endereco.complemento')">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="bairro">Bairro:</label>
+        <input type="text" class="form-control" formControlName="bairro" id="bairro"
+        placeholder="" [ngClass]="sharedForm.aplicarCssErro('endereco.bairro')">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="cidade">Cidade:</label>
+        <input id="cidade" placeholder="Cidade" type="text" class="form-control"
+        formControlName="cidade" [ngClass]="sharedForm.aplicarCssErro('endereco.cidade')">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="estado">Estado:</label>
+        <select name="estados" class="form-control" formControlName="estado" id="estado"
+        [ngClass]="sharedForm.aplicarCssErro('endereco.estado')"
+        >
+          <option value="0">Escolha o Estado</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button type="submit" id="enviar" class="btn btn-primary">Cadastrar</button>
+  <button type="reset" class="btn btn-danger">Limpar</button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hien="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Parte Titulo - Modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo">Cadastrar com Sucesso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hiden="true">&times;</span>
+        </button>
+      </div>
+      <!-- Parte Corpo - Modal -->
+      <div class="modal-body">
+        <p id="corpo">Obrigado por se Cadastrar =)</p>
+      </div>
+      <!-- Parte Final - Modal -->
+      <div class="modal-footer">
+        <button type="button" id="fechar" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+        <button type="button" id="fechar1" class="btn btn-danger d-none" data-dismiss="modal">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
