@@ -16,6 +16,8 @@ import { ProdutosService } from '../comum/servicos/produtos.service';
 import { ComumPortalModule } from './comum/comum-portal.module';
 import { ComumMmodule } from '../comum/comum.module';
 import { CarrinhoService } from './comum/servicos/carrinho.service';
+import { CategoriasResolver } from './categorias/guard/categorias.resolver';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 
 
@@ -30,13 +32,13 @@ import { CarrinhoService } from './comum/servicos/carrinho.service';
     CollapseModule.forRoot(),
     ComumPortalModule,
     ComumMmodule
-
   ],
   declarations: [
     PortalComponent,
     HeaderComponent,
-    PrinciapalComponent
+    PrinciapalComponent,
+    CategoriasComponent
   ],
-  providers: [CarrinhoService]
+  providers: [CarrinhoService, CategoriasResolver]
 })
 export class PortalModule { }

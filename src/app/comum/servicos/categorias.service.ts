@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 export class CategoriasService {
 
   private lugar = 'assets/dados/categorias.json';
+  private lugar1 = 'assets/dados/categoria.json';
 
   constructor(private http: Http) { }
 
@@ -18,4 +19,10 @@ export class CategoriasService {
    // return this.resposta;
   }
 
+  getCadegoria(id: number): Observable<Categorias> {
+    // console.log(id);
+    return this.http
+            .get(this.lugar1)
+            .map(dados => dados.json());
+  }
 }

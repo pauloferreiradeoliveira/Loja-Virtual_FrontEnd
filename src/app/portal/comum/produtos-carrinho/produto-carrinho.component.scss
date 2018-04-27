@@ -9,7 +9,14 @@ p{
 }
 
 .remover{
-  font-size: 14px;
+  font-size: 12px;
   color: $corPrimaria;
   font-weight: bolder;
+}
+
+div {
+  div.col-5{
+    padding-right: 0;
+  }
+
 }

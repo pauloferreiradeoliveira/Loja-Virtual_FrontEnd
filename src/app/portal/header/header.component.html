@@ -8,7 +8,7 @@
   <!-- Logo -->
   <a href="">
     <div class="navbar-brand" id="logo">
-      <img class="logo" src="assets/images/logo.png" href="#">
+      <img class="logo" src="assets/images/logo.png" (click)="direcionarPrincipal()">
     </div>
   </a>
   <!-- Pesquisa -->
@@ -16,7 +16,7 @@
     <div class="form-group col-11 buscar">
       <div class="input-group">
         <input type="text" class="form-control" id="buscar" placeholder="Buscar">
-        <a href="#">
+        <a>
           <img src="assets/images/ic_search_azul.svg">
         </a>
       </div>
@@ -28,7 +28,7 @@
       <img src="assets/images/login.svg" class="mx-center icon">
       <div class="mx-center cadastro">
         <p id="login">Olá, Bem Vindo!</p>
-        <a href="#cadastrar" id="cadastrar">Entre ou se Cadastre-se</a>
+        <a href="#" id="cadastrar">Entre ou se Cadastre-se</a>
       </div>
     </div>
     <!-- Começo - Dropdowns - Carrinho  -->
@@ -50,7 +50,7 @@
           <app-produto-carrinho *ngFor="let prot of produtos" [produto]="prot" ></app-produto-carrinho>
         </article>
         <!-- Fim - Livros -->
-        <span class="dropdown-item active" id="valorTotal" href="#">Valor Total: R$ 0,00</span>
+        <span class="dropdown-item active" id="valorTotal">Valor Total: {{ getValorTotal() | dinheiro }}</span>
         <div class="dropdown-divider"></div>
         <div class="dropdown-item">
           <a class="btn btn-success car" href="#carrinho" id="finalizar">
@@ -68,7 +68,7 @@
     <ul class="navbar-nav mr-auto mx-auto">
       <!-- Categorias -->
       <li class="nav-item" *ngFor="let categoria of categorias">
-        <a class="nav-link" id="{{ categoria.nome }}"  (click)="mostarOuNao()">{{ categoria.nome }}</a>
+        <a class="nav-link"  id="{{ categoria.nome }}"  (click)="mostarOuNao()" (click)="mudarRota(categoria.id)">{{ categoria.nome }}</a>
       </li>
     </ul>
   </div>
