@@ -11,6 +11,7 @@ const routesPortal: Routes = [
     { path: 'categoria/:id', component: CategoriasComponent,
       resolve: { cadegoria: CategoriasResolver }
     },
+    {path: 'formularios', loadChildren: 'app/portal/form/form.module#FormModule'},
     { path: '', component: PrinciapalComponent }
   ]},
 ];

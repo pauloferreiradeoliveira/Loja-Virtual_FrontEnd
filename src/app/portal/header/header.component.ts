@@ -69,11 +69,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return valor;
   }
 
-  mudarRota(id: number) {
+  // Rotas
+
+  direcionarCategoria(id: number) {
     this.router.navigate(['/categoria', id]);
   }
 
   direcionarPrincipal() {
     this.router.navigate(['']);
   }
+
+  direcionarLogin() {
+    this.router.navigate(['/formularios/login']);
+  }
+
+  direcionarCadastrar() {
+    this.router.navigate(['/formularios/cadastrar']);
+  }
+
+  // Fim Rotas
 }
