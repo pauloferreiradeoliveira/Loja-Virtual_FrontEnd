@@ -18,13 +18,16 @@ export class UsuarioService {
    // return this.resposta;
   }
 
-  insertUsuario(usuario: Usuario) {
-    this.http.post('https://httpbin.org/post', JSON.stringify(usuario))
+  insertUsuario(dado): boolean {
+    let retorno = false;
+    this.http.post('https://httpbin.org/post', JSON.stringify(dado))
         .map(res => res)
         .subscribe(dados => {
           console.log(dados);
           // reseta o for
+          retorno = true;
         }, (error: any) => alert('error'));
+    return retorno;
   }
 
 }
