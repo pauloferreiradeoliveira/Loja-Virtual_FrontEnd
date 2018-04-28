@@ -1,5 +1,5 @@
 <h5 class="titulos">Cadastro</h5>
-<form [formGroup]="formulario">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
   <div class="form-row">
     <!-- Nome -->
     <div class="form-group col-md-8">
@@ -62,12 +62,12 @@
       <div class="form-group col-md-3">
         <label for="inputCEP">CEP:</label>
         <input type="text" class="form-control" id="CEP" placeholder="CEP" formControlName="CEP"
-        [ngClass]="sharedForm.aplicarCssErro('endereco.CEP')">
+        [ngClass]="sharedForm.aplicarCssErro('endereco.CEP')" (blur)="consultarCEP()">
       </div>
       <div class="form-group col-md-7">
-        <label for="rua">Rua:</label>
+        <label for="rua">Logradouro:</label>
         <input type="text" class="form-control" formControlName="rua" id="rua"
-         placeholder="Rua 01" [ngClass]="sharedForm.aplicarCssErro('endereco.rua')">
+         placeholder="Logradouro" [ngClass]="sharedForm.aplicarCssErro('endereco.rua')">
       </div>
       <div class="form-group col-md-2">
         <label for="numero">Numero:</label>

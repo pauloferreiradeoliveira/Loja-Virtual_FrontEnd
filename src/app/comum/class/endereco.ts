@@ -3,9 +3,9 @@ export class Endereco {
     public CEP: string,
     public numero: number,
     public complemento: string ,
-    public rua: string,
+    public logradouro: string,
     public bairro: string,
-    public cidade: string,
-    public estado: string
+    public localidade: string,
+    public uf: string
   ) {}
 }
