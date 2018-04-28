@@ -16,7 +16,7 @@ export class EnderecoService {
 
   }
 
-  consultaCEP(cep):  Observable<Endereco> | null {
+  consultaCEP(cep):  Observable<Endereco> {
     cep = cep.replace(/\D/g, '');
     if (cep !== '') {
      const validacep = /^[0-9]{8}$/;
@@ -28,4 +28,6 @@ export class EnderecoService {
     }
     return null;
    }
+
+
 }

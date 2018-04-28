@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedForm } from './comum/shared-form';
+import { EnderecoService } from '../../../comum/servicos/endereco.service';
+import { Endereco } from '../../../comum/class/endereco';
+import { UsuarioService } from '../../../comum/servicos/usuario.service';
+import { Usuario } from '../../../comum/class/usuario';
 
 @Component({
   selector: 'app-cadastrar',
@@ -13,7 +17,8 @@ export class CadastrarComponent implements OnInit {
   formulario: FormGroup;
   sharedForm: SharedForm;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private enderecoService: EnderecoService,
+    private usuarioService: UsuarioService) { }
 
   // Ciclos
   ngOnInit() {
@@ -42,8 +47,35 @@ export class CadastrarComponent implements OnInit {
     this.sharedForm = new SharedForm(this.formulario);
   }
 
+  consultarCEP() {
+    const cep = this.formulario.value.endereco.CEP;
+    if (cep != null) {
+      this.enderecoService.consultaCEP(cep).subscribe(
+        dados => this.popularEnderecoForm(dados)
+      );
+    }
+  }
 
+  popularEnderecoForm(dados: Endereco) {
+    this.formulario.patchValue({
+      endereco: {
+        complemento: dados.complemento,
+        rua: dados.logradouro ,
+        bairro: dados.bairro ,
+        cidade: dados.localidade ,
+        estado: dados.uf
+      }
+    }) ;
+  }
 
-
-
+  onSubmit() {
+    if (this.formulario.valid) {
+      const valor = this.formulario.value;
+      const usuario: Usuario = new Usuario(
+        null, valor.nome, valor.email, valor.senha, valor.CPF, valor.telefone
+      );
+      const endereco: Endereco = valor.endereco;
+      console.log(usuario, endereco);
+    }
+  }
 }
