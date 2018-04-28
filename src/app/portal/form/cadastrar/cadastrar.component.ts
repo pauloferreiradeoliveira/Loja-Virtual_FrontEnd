@@ -5,6 +5,7 @@ import { EnderecoService } from '../../../comum/servicos/endereco.service';
 import { Endereco } from '../../../comum/class/endereco';
 import { UsuarioService } from '../../../comum/servicos/usuario.service';
 import { Usuario } from '../../../comum/class/usuario';
+import { VALID } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-cadastrar',
@@ -16,6 +17,11 @@ export class CadastrarComponent implements OnInit {
   // Variaveis
   formulario: FormGroup;
   sharedForm: SharedForm;
+  cpfErro = true;
+
+  public cpf = [/[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-' , /[0-9]/, /[0-9]/];
+  public telefone = ['(', /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/];
+  public cep = [/[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, /[0-9]/];
 
   constructor(private formBuilder: FormBuilder, private enderecoService: EnderecoService,
     private usuarioService: UsuarioService) { }
@@ -26,7 +32,7 @@ export class CadastrarComponent implements OnInit {
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       email: [null, [Validators.email, Validators.required]],
       conemail: [null, [Validators.email, Validators.required]],
-      telefone: [null, [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
+      telefone: [null, [Validators.required, Validators.minLength(14), Validators.maxLength(15)]],
       senha: [null, [Validators.required]],
       confsenha: [null, [Validators.required]],
       CPF: [null, [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
@@ -71,11 +77,41 @@ export class CadastrarComponent implements OnInit {
   onSubmit() {
     if (this.formulario.valid) {
       const valor = this.formulario.value;
-      const usuario: Usuario = new Usuario(
-        null, valor.nome, valor.email, valor.senha, valor.CPF, valor.telefone
-      );
-      const endereco: Endereco = valor.endereco;
-      console.log(usuario, endereco);
+      this.usuarioService.insertUsuario(valor);
     }
   }
+
+  validadorCPF() {
+    const campoCPF = this.formulario.get('CPF');
+    // console.log(cpfErro, campoCPF);
+
+    if (campoCPF.touched) {
+      let cpf = campoCPF.value;
+      cpf = cpf.replace(/\D/g, '');
+
+      if (this.sharedForm.validadarCPF(cpf)) {
+        // Validos
+        campoCPF.clearValidators();
+        this.cpfErro = true;
+      } else {
+        // Invalidos
+        campoCPF.setErrors({cpf: 'cpf invalido'});
+        this.cpfErro = false;
+        console.log(this.cpfErro);
+
+      }
+    }
+    this.cpfErro = true;
+  }
+
+  onConfimeEmail() {
+    this.sharedForm.verificandoDuplicidade('email', 'conemail');
+  }
+
+  onConfimeSenha() {
+    this.sharedForm.verificandoDuplicidade('senha', 'consenha');
+  }
+
+
+
 }
