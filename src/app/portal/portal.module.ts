@@ -18,6 +18,7 @@ import { ComumMmodule } from '../comum/comum.module';
 import { CarrinhoService } from './comum/servicos/carrinho.service';
 import { CategoriasResolver } from './categorias/guard/categorias.resolver';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -37,7 +38,8 @@ import { CategoriasComponent } from './categorias/categorias.component';
     PortalComponent,
     HeaderComponent,
     PrinciapalComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    FooterComponent
   ],
   providers: [
     CarrinhoService,

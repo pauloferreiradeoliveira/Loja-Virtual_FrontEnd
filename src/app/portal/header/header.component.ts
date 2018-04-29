@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Fim - Ciclo
 
   mostarOuNao() {
-    if (window.matchMedia('only screen and (max-width: 768px)').matches) {
+    if (window.matchMedia('only screen and (max-width: 769px)').matches) {
       this.isCollapsed = !this.isCollapsed;
     } else {
       this.isCollapsed = false;
