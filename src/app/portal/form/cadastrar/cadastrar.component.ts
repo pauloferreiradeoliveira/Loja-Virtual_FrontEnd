@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SharedForm } from './comum/shared-form';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+// Proprio
+import { SharedForm } from '../comum/shared-form';
 import { EnderecoService } from '../../../comum/servicos/endereco.service';
 import { Endereco } from '../../../comum/class/endereco';
 import { UsuarioService } from '../../../comum/servicos/usuario.service';
 import { Usuario } from '../../../comum/class/usuario';
-import { VALID } from '@angular/forms/src/model';
+import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar',
@@ -14,17 +18,30 @@ import { VALID } from '@angular/forms/src/model';
 })
 export class CadastrarComponent implements OnInit {
 
+  //  Modal
+  modalRef: BsModalRef;
+  messagemModal: string;
+  tituloModal: string;
+
+  enviar: Subscription;
+
   // Variaveis
   formulario: FormGroup;
   sharedForm: SharedForm;
-  cpfErro = true;
+  // Mostar os Erros
+  Erro: boolean[] = [true, true, true];
 
+  // Mascara
   public cpf = [/[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-' , /[0-9]/, /[0-9]/];
   public telefone = ['(', /[0-9]/, /[0-9]/, ')', ' ', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/];
   public cep = [/[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/, /[0-9]/];
 
-  constructor(private formBuilder: FormBuilder, private enderecoService: EnderecoService,
-    private usuarioService: UsuarioService) { }
+  constructor(private formBuilder: FormBuilder,
+    private enderecoService: EnderecoService,
+    private usuarioService: UsuarioService,
+    private modalService: BsModalService,
+    private router: Router
+    ) { }
 
   // Ciclos
   ngOnInit() {
@@ -47,8 +64,6 @@ export class CadastrarComponent implements OnInit {
       })
     });
 
-    console.log(this.formulario.value);
-
     // Validações
     this.sharedForm = new SharedForm(this.formulario);
   }
@@ -66,52 +81,66 @@ export class CadastrarComponent implements OnInit {
     this.formulario.patchValue({
       endereco: {
         complemento: dados.complemento,
-        rua: dados.logradouro ,
-        bairro: dados.bairro ,
-        cidade: dados.localidade ,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
         estado: dados.uf
       }
     }) ;
   }
 
-  onSubmit() {
-    if (this.formulario.valid) {
-      const valor = this.formulario.value;
-      this.usuarioService.insertUsuario(valor);
-    }
-  }
+  // Validações - Começo
 
   validadorCPF() {
     const campoCPF = this.formulario.get('CPF');
     // console.log(cpfErro, campoCPF);
 
     if (campoCPF.touched) {
-      let cpf = campoCPF.value;
-      cpf = cpf.replace(/\D/g, '');
-
+      const cpf = campoCPF.value;
       if (this.sharedForm.validadarCPF(cpf)) {
         // Validos
         campoCPF.clearValidators();
-        this.cpfErro = true;
+        this.Erro[0] = true;
       } else {
         // Invalidos
         campoCPF.setErrors({cpf: 'cpf invalido'});
-        this.cpfErro = false;
-        console.log(this.cpfErro);
-
+        this.Erro[0] = false;
       }
     }
-    this.cpfErro = true;
   }
 
   onConfimeEmail() {
-    this.sharedForm.verificandoDuplicidade('email', 'conemail');
+    this.Erro[2] = this.sharedForm.verificandoDuplicidade('email', 'conemail');
   }
 
   onConfimeSenha() {
-    this.sharedForm.verificandoDuplicidade('senha', 'consenha');
+    this.Erro[1] = this.sharedForm.verificandoDuplicidade('senha', 'confsenha');
   }
 
+  // Validações - FIM
 
+  onSubmit(modal) {
+    if (this.formulario.valid) {
+      this.enviar =
+        this.usuarioService.insertUsuario(this.formulario.value)
+          .subscribe(
+            dados => {
+              this.tituloModal = 'Cadastrado com Sucesso';
+              this.messagemModal = 'Obrigado por se Cadastrar';
+              this.router.navigate(['/formularios/login']);
 
+            },
+            (error: any) => {
+              this.tituloModal = 'Ocorreu um Erro';
+              this.messagemModal = `Tente mais Tarde + <p>${error}</p>`;
+            }
+          );
+      this.openModal(modal);
+    }
+  }
+
+  // Modal
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 }
