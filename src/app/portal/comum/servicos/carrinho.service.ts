@@ -3,24 +3,65 @@ import { Produto } from "../../../comum/class/produto";
 
 @Injectable()
 export class CarrinhoService {
-  static emitirProdutoAdicionado = new EventEmitter<Produto[]>();
-  private produtos: Produto[];
+  // Para poder modificar nos lugares
+  emitirProdutoAdicionado = new EventEmitter<Produto[]>();
 
   constructor() {}
 
+  // Adicionar produtos ao Carrinho
   addCarrinho(cat: Produto) {
-    if (this.produtos == null) {
-      this.produtos = [cat];
+    let listaProdutos = this.getLocalCarrinho();
+
+    if (listaProdutos == null) {
+      listaProdutos = [cat];
+
     } else {
-      this.produtos.push(cat);
+      if(this.pegarIndex(listaProdutos,cat) === -1) {
+        listaProdutos.push(cat)
+        // this.produtos.push(cat);
+      }
     }
-    CarrinhoService.emitirProdutoAdicionado.emit(this.produtos);
+
+    this.setLocalCarrinho(listaProdutos);
+
   }
 
-  removeCarrinho(produto: Produto) {
-    const index: number = this.produtos.indexOf(produto);
+  getCarrinho(): void {
+    let listaProdutos = this.getLocalCarrinho();
+    this.emitirProdutoAdicionado.emit(listaProdutos);
+  }
+
+  removeCarrinho(removeProduto: Produto): void {
+    let listaProdutos: Produto[] = this.getLocalCarrinho();
+
+    const index: number = this.pegarIndex(listaProdutos,removeProduto);
+
+    console.log(index);
+
     if (index !== -1) {
-      this.produtos.splice(index, 1);
+      listaProdutos.splice(index, 1);
     }
+    localStorage.setItem('carrinho',JSON.stringify(listaProdutos));
+    this.setLocalCarrinho(listaProdutos);
+  }
+
+  private getLocalCarrinho(): Produto[]{
+    return JSON.parse(localStorage.getItem('carrinho'));
+  }
+
+  private setLocalCarrinho(listaProdutos: Produto[]){
+    localStorage.setItem('carrinho',JSON.stringify(listaProdutos));
+    this.emitirProdutoAdicionado.emit(listaProdutos);
+  }
+
+  private pegarIndex(lista: Produto[],pro: Produto): number{
+
+    for (let i = 0; i < lista.length; i++) {
+      if(lista[i].id === pro.id){
+        return i;
+      }
+     }
+    return -1;
+
   }
 }

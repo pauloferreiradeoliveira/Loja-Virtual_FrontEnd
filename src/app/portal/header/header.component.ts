@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   categorias: Categorias[] = null;
   produtos: Produto[];
   isCollapsed = false;
+
   // Subscription: para poder destruir
   subCatergorias: Subscription;
   subCarrinho: Subscription;
@@ -33,10 +34,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.pegandoCategorias();
     this.mostarOuNao();
+
     // Se os produtos mudar - Acionarar um Evento - Informandos a todos
-    this.subCarrinho = CarrinhoService.emitirProdutoAdicionado.subscribe(
-      produtoAdd => (this.produtos = produtoAdd)
+    this.subCarrinho = this.carrinhoSevice.emitirProdutoAdicionado.subscribe(
+      produto => (this.produtos = produto)
     );
+    this.carrinhoSevice.getCarrinho();
   }
   // Boas Particas
   ngOnDestroy() {

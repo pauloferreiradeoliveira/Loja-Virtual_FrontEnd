@@ -1,0 +1,17 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin cirulo($cor){
+ background: radial-gradient(circle closest-side,$cor 0%,$cor 98%,rgba(0,0,0,0) 100%);
+}
+
+@mixin ciruloFundo($cor,$imagem){
+  background:radial-gradient(circle closest-side,
+  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 78%,#fff 80%,#fff 94%,
+  $cor 96%,$cor 99%,#fff 100%),
+  url($imagem) no-repeat center/160px 160px;
+ }

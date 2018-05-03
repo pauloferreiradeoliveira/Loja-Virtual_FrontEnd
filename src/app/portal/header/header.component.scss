@@ -1,4 +1,4 @@
-@import "../comum/sass/variaveis.sass";
+@import '~styles.scss';
 
 /* Header e Nav - Começo */
 /*Quando esta no PC*/
@@ -62,15 +62,12 @@ nav {
   height: 40px;
   margin: 10px;
   cursor: pointer;
-
-
 }
 
 /*Livro do Carrinho no Dropdraw*/
 .livro {
   margin-left: 10px;
 }
-
 
 .navbar-toggler {
   border: none;

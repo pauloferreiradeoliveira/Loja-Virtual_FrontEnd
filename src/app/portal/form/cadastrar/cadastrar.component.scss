@@ -1,15 +1,9 @@
-@import "../../comum/sass/variaveis.sass";
-
-.sem {padding: 0 !important;}
+@import '~styles.scss';
 
 .titulos,h1 {
-  border-bottom: 1px solid $corPrimaria;
-  color: $corPrimaria;
-  font-weight: bolder;
-  margin: 20px 0 40px 0;
-  padding-bottom: 10px;
-  width: 100%;
+  @extend %titulo;
 }
+
 
 .erro{
   color:  red;
