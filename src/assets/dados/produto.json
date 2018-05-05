@@ -8,7 +8,7 @@
     "largura": 1,
     "comprimento": 1,
     "descricao": "outroas",
-    "foto": "assets/dev/1.jpg",
+    "foto": "assets/dev/laco.png",
     "parcela": 1,
     "idCategoria": 1
   },
@@ -21,7 +21,7 @@
     "largura": 1,
     "comprimento": 1,
     "descricao": "outroas",
-    "foto": "assets/dev/1.jpg",
+    "foto": "assets/dev/laco.png",
     "parcela": 2,
     "idCategoria": 1
   },
@@ -34,7 +34,7 @@
     "largura": 1,
     "comprimento": 1,
     "descricao": "outroas",
-    "foto": "assets/dev/1.jpg",
+    "foto": "assets/dev/laco.png",
     "parcela": 1,
     "idCategoria": 1
   },
@@ -47,7 +47,7 @@
     "largura": 1,
     "comprimento": 1,
     "descricao": "outroas",
-    "foto": "assets/dev/1.jpg",
+    "foto": "assets/dev/laco.png",
     "parcela": 3,
     "idCategoria": 1
   },
@@ -60,7 +60,7 @@
     "largura": 1,
     "comprimento": 1,
     "descricao": "outroas",
-    "foto": "assets/dev/1.jpg",
+    "foto": "assets/dev/laco.png",
     "parcela": 1,
     "idCategoria": 1
   }

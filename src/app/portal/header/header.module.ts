@@ -8,20 +8,21 @@ import { ComumMmodule } from '../../comum/comum.module';
 import { CarrinhoService } from '../comum/servicos/carrinho.service';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     ComumMmodule,
-    BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
   ],
   declarations: [
     HeaderComponent,
     CarrinhoComponent,
-    ProdutoCarrinhoComponent
-  ],
+    ProdutoCarrinhoComponent,
+    LoginComponent
+],
   exports:[
     HeaderComponent
   ],

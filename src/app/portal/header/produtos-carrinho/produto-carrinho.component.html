@@ -1,11 +1,13 @@
-<div class="row">
-  <div class="col-5">
-    <img src="{{ produto.foto }}" class="img-fluid livro align-self-center">
+<div class="row align-items-center">
+  <div class="col-3 ">
+    <img src="{{ produto.foto }}" class="img-fluid livro mx-auto">
   </div>
-  <div class="col-7">
-    <a href="#">{{ produto.nome }}</a>
-    <p>{{ produto.preco | dinheiro}}</p>
-    <a class="remover" href="#" (click)="removeProduto()">Remover</a>
+  <div class="col-5">
+    <a class="nomeProduto">{{ produto.nome }}</a>
+    <a class="remover text-muted"(click)="removeProduto()">Remover</a>
+  </div>
+  <div class="col-4">
+      <p>{{ produto.preco | dinheiro}}</p>
   </div>
 </div>
 <div class="dropdown-divider"></div>

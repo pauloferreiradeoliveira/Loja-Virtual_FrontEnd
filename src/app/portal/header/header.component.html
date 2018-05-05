@@ -3,7 +3,7 @@
   <!-- Botão Para mostra o menu -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation" (click)="mostarOuNao()">
-    <img src="assets/images/menu.svg">
+    <img src="assets/images/svg/more.svg">
   </button>
   <!-- Logo -->
   <a (click)="direcionarPrincipal()">
@@ -11,6 +11,12 @@
       <img class="logo" src="assets/images/logo.png">
     </div>
   </a>
+
+  <div class="d-flex navbar-brand " *ngIf="isCelularTable">
+      <button class="navbar-toggler" type="button" (click)="dropdrawUser()" ><img src="assets/images/svg/person.svg" ></button>
+      <button class="navbar-toggler" type="button" (click)="dropdrawCarrinho()" ><img src="assets/images/svg/cart.svg" ></button>
+  </div>
+
   <!-- Pesquisa -->
   <div class="collapse navbar-collapse navbarSupportedContent" [collapse]="isCollapsed">
     <div class="form-group col-11 buscar">
@@ -22,44 +28,23 @@
       </div>
     </div>
   </div>
-  <div class="d-flex ">
+  <div class="d-flex" *ngIf="!isCelularTable">
     <!-- Cadastro -->
-    <div class="collapse navbar-collapse  navbarSupportedContent" [collapse]="isCollapsed">
+    <div class="collapse navbar-collapse  navbarSupportedContent" (click)="dropdrawUser()">
       <img src="assets/images/login.svg" class="mx-center icon">
       <div class="mx-center cadastro">
         <p>Olá, Bem Vindo!</p>
         <div>
-          <a (click)="direcionarLogin()">Entre </a>
-          <a>ou se</a>
-          <a (click)="direcionarCadastrar()"> Cadastre-se</a>
+          <a>Entre ou se Cadastre-se</a>
         </div>
       </div>
     </div>
     <!-- Começo - Dropdowns - Carrinho  -->
-    <div class="dropdown show mr-2" dropdown>
+    <div class="mr-2" (click)="dropdrawCarrinho()">
       <!-- O Que Vai Aparecer -->
-      <div class="dropleft" id="dropdownMenuButton" dropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <!-- position: Para Um elemento ficar encima do outro -->
+      <div class="dropleft">
         <img src="assets/images/car.svg" class="p-2 position-absolute">
         <span class="badge badge-pill badge-danger position-relative" id="qd">{{ produtos? produtos.length : 0 }}</span>
-      </div>
-      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu style="width: 250px">
-        <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;&nbsp;</span>
-        </button>
-        <h6 class="dropdown-header"> Comprados</h6>
-        <div class="dropdown-divider"></div>
-        <!-- Livros -->
-        <article id="livros">
-          <app-produto-carrinho *ngFor="let prot of produtos" [produto]="prot"></app-produto-carrinho>
-        </article>
-        <!-- Fim - Livros -->
-        <span class="dropdown-item active" id="valorTotal">Valor Total: {{ getValorTotal() | dinheiro }}</span>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-item">
-          <a class="btn btn-success car" href="#carrinho" id="finalizar">
-            <img src="assets/images/ic_shopping_cart_white_24px.svg">Finalizar Comprar</a>
-        </div>
       </div>
     </div>
     <!-- Fim - Dropdowns - Carrinho  -->
@@ -67,14 +52,17 @@
 </header>
 <!-- Fim Header -->
 <!-- Começo do Nav -->
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="collapse navbar-collapse navbarSupportedContent" [collapse]="isCollapsed">
+<div class="collapse navbar-collapse navbarSupportedContent" [collapse]="isCollapsed">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <ul class="navbar-nav mr-auto mx-auto">
       <!-- Categorias -->
       <li class="nav-item" *ngFor="let categoria of categorias">
         <a class="nav-link" id="{{ categoria.nome }}" (click)="mostarOuNao()" (click)="direcionarCategoria(categoria.id)">{{ categoria.nome }}</a>
       </li>
     </ul>
-  </div>
-</nav>
+
+  </nav>
+</div>
 <!-- Fim - Nav (Onde estao as Categorias) -->
+<app-carrinho [produtos]="produtos" [hidden]="carrinhoMostrando"></app-carrinho>
+<app-login [hidden]="loginMostrando"></app-login>

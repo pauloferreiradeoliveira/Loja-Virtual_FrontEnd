@@ -18,7 +18,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Variaveis
   categorias: Categorias[] = null;
   produtos: Produto[];
+
   isCollapsed = false;
+  isCelularTable: boolean;
+  carrinhoMostrando = true;
+  loginMostrando = true;
 
   // Subscription: para poder destruir
   subCatergorias: Subscription;
@@ -51,8 +55,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   mostarOuNao() {
     if (window.matchMedia('only screen and (max-width: 769px)').matches) {
       this.isCollapsed = !this.isCollapsed;
+      this.isCelularTable = true;
     } else {
       this.isCollapsed = false;
+      this.isCelularTable = false;
     }
   }
 
@@ -62,17 +68,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(dados => (this.categorias = dados));
   }
 
-  getValorTotal(): number {
-    let valor = 0;
-    if (!(this.produtos == null)) {
-      for (const produto of this.produtos) {
-        valor += produto.preco;
-      }
+  // Rotas
+
+  dropdrawCarrinho(){
+    if(!this.loginMostrando){
+      this.loginMostrando = true;
     }
-    return valor;
+    this.carrinhoMostrando = !this.carrinhoMostrando;
   }
 
-  // Rotas
+  dropdrawUser(){
+    if(!this.carrinhoMostrando){
+      this.carrinhoMostrando = true;
+    }
+    this.loginMostrando = !this.loginMostrando;
+  }
 
   direcionarCategoria(id: number) {
     this.router.navigate(['/categoria', id]);
@@ -80,14 +90,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   direcionarPrincipal() {
     this.router.navigate(['']);
-  }
-
-  direcionarLogin() {
-    this.router.navigate(['/formularios/login']);
-  }
-
-  direcionarCadastrar() {
-    this.router.navigate(['/formularios/cadastrar']);
   }
 
   // Fim Rotas

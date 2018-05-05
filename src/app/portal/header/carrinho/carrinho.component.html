@@ -1,3 +1,22 @@
-<div >
-
+<div class="princiapal">
+  <span class="text-black-50">Minha Cesta</span>
+  <app-produto-carrinho *ngFor="let produto of produtos" [produto]="produto"></app-produto-carrinho>
+  <div class="footer">
+    <section class="row align-items-end">
+      <article class="col-8">
+        <p class="text-right text-black-50">Total (valor sem frete):</p>
+      </article>
+      <article class="col-4">
+       <p class="font-weight-bold" > {{ getValorTotal() | dinheiro}}</p>
+      </article>
+      <article class="col-5 ">
+        <a>ver minha cesta</a>
+      </article>
+      <article class="col-7 text-right">
+        <button class="btn comprar">
+          Fechar Pedido
+        </button>
+      </article>
+    </section>
+  </div>
 </div>

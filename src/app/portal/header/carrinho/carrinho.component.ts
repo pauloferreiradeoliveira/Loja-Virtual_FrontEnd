@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Produto } from '../../../comum/class/produto';
 
 @Component({
   selector: 'app-carrinho',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrinhoComponent implements OnInit {
 
+  @Input() produtos: Produto[];
+
   constructor() { }
+
+  getValorTotal(): number {
+    let valor = 0;
+    if (!(this.produtos == null)) {
+      for (const produto of this.produtos) {
+        valor += produto.preco;
+      }
+    }
+    return valor;
+  }
 
   ngOnInit() {
   }

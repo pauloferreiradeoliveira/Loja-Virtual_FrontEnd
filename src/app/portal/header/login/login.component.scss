@@ -1,32 +1,59 @@
 @import '~styles.scss';
 
+
 div.princiapal{
   top: 90px;
   @media only screen and (min-width: 769px){
     top: 60px;
   }
-  width: 310px;
+  width: 250px;
   transform: translateY(0px);
   position: absolute;
-  right: 0;
+  right: 30px;
   margin: 0.3rem;
   z-index: 1000;
   padding: 0.4rem;
-  padding-right: 0;
   border: 1px solid rgba(0,0,0,.15);
   background-color: #fff;
   background-clip: padding-box;
-  animation: 0.2;
-  span{
-    color: #000;
-    margin-bottom: 0.2rem
+  animation: 0.3s;
+
+  div.row {
+    width: 90%;
+    margin: auto;
   }
+
+  .col-12{
+    margin-top: 0.5rem;
+  }
+
+  a{
+    margin-top: 0.3rem;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+
+  .facebook{
+    background-color: #4267b2;
+    color: #fff;
+
+    img{
+      height: 25px;
+    }
+  }
+
+
+  .comprar {
+    background-color: $corPrimaria;
+    color: $textPrimario;
+  }
+
   div.footer{
     background-color: #f2f2f2;
     border-top: 1px solid #e5e5e5;
     margin-left: -0.4rem;
     margin-bottom: -0.4rem;
-    margin-right:0;
+    margin-right:-0.4rem;
     padding: .875em;
 
     p{
@@ -37,11 +64,14 @@ div.princiapal{
       font-size: 12px;
       color:  $corPrimaria;
     }
-
-    .comprar {
-      background-color: $corPrimaria;
-      color: $textPrimario;
+    article{
+      border-left: 1px solid #e5e5e5;
     }
+  }
 
+  p{
+    cursor: pointer;
   }
 }
+
+
