@@ -8,14 +8,13 @@
       <small class="text-muted">
         Min. 8
       </small>
+      <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('nome')">Campo Obrigatório</small>
     </div>
     <div class="form-group col-md-4">
       <label for="CPF">CPF:</label>
       <input type="text" class="form-control" formControlName="CPF" id="CPF" placeholder="CPF" [ngClass]="sharedForm.aplicarCssErro('CPF')"
         [textMask]="{mask: cpf}" (blur)="validadorCPF()">
-      <small class="erro" [hidden]="Erro[0]">
-        CPF Invalidado
-      </small>
+        <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('cpf')">Campo Obrigatório</small>
     </div>
   </div>
   <div class="form-row">
@@ -23,12 +22,14 @@
       <label for="telefone">Telefone:</label>
       <input type="text" class="form-control" formControlName="telefone" id="telefone" placeholder="Telefone" [ngClass]="sharedForm.aplicarCssErro('telefone')"
         [textMask]="{mask: telefone}">
+        <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('telefone')">Campo Obrigatório</small>
     </div>
     <div class="form-group col-md-4">
       <label for="senha">Senha:</label>
       <input type="password" class="form-control" formControlName="senha" id="senha" placeholder="Senha" [ngClass]="sharedForm.aplicarCssErro('senha')"
         (blur)="onConfimeSenha()">
       <small class="text-muted">Min. 8</small>
+      <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('senha')">Campo Obrigatório</small>
       <small class="erro" [hidden]="Erro[1]"> Senha não confere</small>
     </div>
     <div class="form-group col-md-4">
@@ -36,6 +37,7 @@
       <input type="password" class="form-control" formControlName="confsenha" id="confsenha" placeholder="Confirme sua Senha" [ngClass]="sharedForm.aplicarCssErro('confsenha')"
         (blur)="onConfimeSenha()">
       <small class="text-muted">Min. 8</small>
+      <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('confsenha')">Campo Obrigatório</small>
       <small class="erro" [hidden]="Erro[1]"> Senha não confere</small>
     </div>
   </div>
@@ -62,14 +64,18 @@
         <label for="inputCEP">CEP:</label>
         <input type="text" class="form-control" id="CEP" placeholder="CEP" formControlName="CEP" [ngClass]="sharedForm.aplicarCssErro('endereco.CEP')"
           (blur)="consultarCEP()" [textMask]="{mask: cep}">
+          <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('CEP')">Campo Obrigatório</small>
       </div>
       <div class="form-group col-md-7">
         <label for="rua">Logradouro:</label>
         <input type="text" class="form-control" formControlName="rua" id="rua" placeholder="Logradouro" [ngClass]="sharedForm.aplicarCssErro('endereco.rua')">
+
+      <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('rua')">Campo Obrigatório</small>
       </div>
       <div class="form-group col-md-2">
         <label for="numero">Numero:</label>
         <input type="text" class="form-control" formControlName="numero" id="numero" placeholder="01" [ngClass]="sharedForm.aplicarCssErro('endereco.numero')">
+        <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('numero')">Campo Obrigatório</small>
       </div>
     </div>
     <div class="form-row">
@@ -80,12 +86,14 @@
       <div class="form-group col-md-3">
         <label for="bairro">Bairro:</label>
         <input type="text" class="form-control" formControlName="bairro" id="bairro" placeholder="" [ngClass]="sharedForm.aplicarCssErro('endereco.bairro')">
+        <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('bairro')">Campo Obrigatório</small>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="cidade">Cidade:</label>
         <input id="cidade" placeholder="Cidade" type="text" class="form-control" formControlName="cidade" [ngClass]="sharedForm.aplicarCssErro('endereco.cidade')">
+        <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('cidade')">Campo Obrigatório</small>
       </div>
       <div class="form-group col-md-6">
         <label for="estado">Estado:</label>

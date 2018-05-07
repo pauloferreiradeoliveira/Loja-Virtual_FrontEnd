@@ -6,13 +6,18 @@ export class SharedForm {
   constructor(form: FormGroup) {
     this.formulario = form;
   }
+
   aplicarCssErro(campo: string) {
     return { 'is-invalid': this.verificaValidToucched(campo) };
   }
 
-  verificaValidToucched(campo: string) {
+  verificaValidToucched(campo: string): boolean {
     const cm = this.formulario.get(campo);
     return !cm.valid && (cm.touched || cm.dirty);
+  }
+
+  verficarForm(): boolean{
+    return !this.formulario.valid && (this.formulario.touched || this.formulario.dirty)
   }
 
   verificarEmail() {

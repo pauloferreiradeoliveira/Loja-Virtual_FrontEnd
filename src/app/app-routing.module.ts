@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', loadChildren: 'app/portal/portal.module#PortalModule' }
+  {path: '', loadChildren: 'app/portal/portal.module#PortalModule'},
+  {path:'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
