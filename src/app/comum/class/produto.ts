@@ -1,12 +1,16 @@
-export class Produto {
-  constructor(public id: number, public nome: string,
-    public preco: number, public peso: number,
-    public altura: number, public largura: number, public comprimento: number,
-    public descricao: string, public foto: string, public parcela: number,
-    public idCategoria: number
-    ) {}
+export interface Produto {
 
-    getValordaParcela(): number {
-      return this.preco / this.parcela;
-    }
-}
+  id: number;
+  nome: string;
+  preco: number;
+  peso: number;
+  altura: number;
+  largura: number;
+  comprimento: number;
+  descricao: string;
+  foto: string;
+  parcela: number;
+  idCategoria: number;
+
+
+  }

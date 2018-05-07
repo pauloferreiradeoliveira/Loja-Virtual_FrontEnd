@@ -14,8 +14,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  direcionarPrincipal() {
+  direcionarCadastrar() {
     this.router.navigate(['./formularios/cadastrar']);
   }
-
+  direcionarLogin() {
+    this.router.navigate(['./formularios/login']);
+  }
 }

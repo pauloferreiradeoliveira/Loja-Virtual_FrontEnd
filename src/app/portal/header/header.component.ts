@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Categorias } from '../../comum/class/categoria.class';
+import { Categorias } from '../../comum/class/categoria';
 import { CategoriasService } from '../../comum/servicos/categorias.service';
 import { Produto } from '../../comum/class/produto';
 import { CarrinhoService } from '../comum/servicos/carrinho.service';

@@ -1,0 +1,21 @@
+@import "~styles.scss";
+
+.titulos,
+h1 {
+  @extend %titulo;
+}
+
+.erro {
+  color: red;
+}
+
+.principal {
+  color: $textPrimario;
+  background-color: $corPrimaria;
+}
+
+@media only screen and (min-width: 769px) {
+  .complemento {
+    height: 90px;
+  }
+}

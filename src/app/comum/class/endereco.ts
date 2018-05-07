@@ -1,11 +1,11 @@
-export class Endereco {
-  constructor(
-    public CEP: string,
-    public numero: number,
-    public complemento: string ,
-    public logradouro: string,
-    public bairro: string,
-    public localidade: string,
-    public uf: string
-  ) {}
+export interface Endereco {
+
+   CEP: string;
+   numero: number;
+   complemento: string ;
+   logradouro: string;
+   bairro: string;
+   localidade: string;
+   uf: string;
+
 }

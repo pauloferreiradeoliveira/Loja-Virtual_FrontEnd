@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cadastrar',
   templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.scss']
+  styleUrls: ['../comum/estilosForm.scss']
 })
 export class CadastrarComponent implements OnInit {
 
