@@ -1,0 +1,21 @@
+@import "~styles.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+ul li {
+  font-family: 'Montserrat', sans-serif;
+  color: lighten($corFundo, 50%);
+  background-color: $corFundo;
+  height: 50px;
+  border-radius: 0;
+  i {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: lighten($corFundo, 10%);
+  }
+}

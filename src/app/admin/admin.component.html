@@ -1,4 +1,69 @@
-<app-aside></app-aside>
-<main>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<!-- Aside - Começo -->
+<aside class="col-10 col-md-2 sem" [hidden]="painel">
+  <nav class="list-group-item titulo ">
+    <p class="text-center align-middle">Art's
+      <label class="font-weight-bold">Fatima</label>
+    </p>
+  </nav>
+
+  <section class="list-group-item person">
+    <div class="row">
+      <div class="col-4">
+        <img src="assets/images/person.jpeg" class="imgPerson">
+      </div>
+      <div class="col-8 sem">
+        <p class="font-weight-bold">Paulo Ferreira</p>
+        <p>
+          <img src="assets/images/svg/circle.svg" class="circle">Online</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="list-group-item nav">
+    <p class="text-uppercase">Navegação</p>
+  </section>
+
+  <!-- Onde estar a navegação -->
+  <app-navegacao></app-navegacao>
+</aside>
+<!-- Fim - Aside -->
+
+<main class="col-12 col-md-10 offset-md-2 sem">
+  <ul class="titulo nav justify-content-end">
+    <li class="nav-item" (click)="mostarLogin()">
+      <img src="assets/images/person.jpeg" class="imgPerson">
+      <label>Paulo Ferreira</label>
+    </li>
+    <li class="nav-item" >
+      <i class=" material-icons">&#xE8B8;</i>
+    </li>
+  </ul>
 </main>
+
+<div class="princiapal conteiner" [hidden]="login">
+  <div class="prin">
+  <section class="row">
+    <article class="col-12">
+      <img src="assets/images/person.jpeg" class="imgPerson">
+    </article>
+    <article class="col-12">
+      <p class="nome">Paulo Ferreira</p>
+      <p class="perfil"> Administrador </p>
+    </article>
+  </section>
+</div>
+  <div class="footer">
+    <section class="row align-items-end">
+        <article class="col-8">
+
+          </article>
+      <article class="col-2">
+        <button class="btn btn-secondary"> <i class="material-icons">&#xE879;</i><p>Sair</p></button>
+      </article>
+    </section>
+  </div>
+</div>
+
+<div class="final" *ngIf="final" (click)="fecharLoginPainel()"></div>
