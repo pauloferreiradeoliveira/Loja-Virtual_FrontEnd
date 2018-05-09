@@ -1,2 +1,27 @@
-<h1>Categoria</h1>
+<h1>
+  <i class="fas fa-cubes"></i> Categoria
+</h1>
 
+<section class="col-12">
+  <div class="row">
+    <div class="col-6 row">
+      <article class="col-12 row">
+        <div class="form-group col-8">
+          <input type="text" class="form-control" id="Pesquisa" placeholder="Pesquisa Categoria">
+        </div>
+        <div class="col-4">
+          <button class="btn btn-success">
+            <i class="fas fa-plus"></i> Adicionar</button>
+        </div>
+      </article>
+      <article class="col-12 list-group conteiner">
+        <a *ngFor="let categoria of categorias" class="list-group-item list-group-item-action">
+            {{categoria.nome}}
+        </a>
+      </article>
+    </div>
+    <div class="col-6 row">
+
+    </div>
+  </div>
+</section>
