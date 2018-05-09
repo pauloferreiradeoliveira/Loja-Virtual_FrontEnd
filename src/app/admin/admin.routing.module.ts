@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 
 const routesAdmin: Routes = [
   {path: '', component: AdminComponent , children:[
+    {path: 'categorias',loadChildren: 'app/admin/categoria/categoria.module#CategoriaModule'}
 
   ]},
   {path: 'login', component: LoginComponent}

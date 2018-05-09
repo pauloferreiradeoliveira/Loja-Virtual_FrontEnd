@@ -36,31 +36,38 @@
       <img src="assets/images/person.jpeg" class="imgPerson">
       <label>Paulo Ferreira</label>
     </li>
-    <li class="nav-item" >
+    <li class="nav-item">
       <i class=" material-icons">&#xE8B8;</i>
     </li>
   </ul>
+
+  <section class="container">
+    <router-outlet></router-outlet>
+  </section>
 </main>
 
-<div class="princiapal conteiner" [hidden]="login">
+<!-- Login -->
+<div class="princiapal" [hidden]="login">
   <div class="prin">
-  <section class="row">
-    <article class="col-12">
-      <img src="assets/images/person.jpeg" class="imgPerson">
-    </article>
-    <article class="col-12">
-      <p class="nome">Paulo Ferreira</p>
-      <p class="perfil"> Administrador </p>
-    </article>
-  </section>
-</div>
+    <section class="row">
+      <article class="col-12">
+        <img src="assets/images/person.jpeg" class="imgPerson">
+      </article>
+      <article class="col-12">
+        <p class="nome">Paulo Ferreira</p>
+        <p class="perfil"> Administrador </p>
+      </article>
+    </section>
+  </div>
   <div class="footer">
     <section class="row align-items-end">
-        <article class="col-8">
-
-          </article>
-      <article class="col-2">
-        <button class="btn btn-secondary"> <i class="material-icons">&#xE879;</i><p>Sair</p></button>
+      <article class="col-8">
+      </article>
+      <article class="col-3">
+        <button class="btn btn-danger">
+          <i class="material-icons">&#xE879;</i>
+          <label>Sair</label>
+        </button>
       </article>
     </section>
   </div>

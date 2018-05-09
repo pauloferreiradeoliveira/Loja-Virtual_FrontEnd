@@ -18,4 +18,9 @@ ul li {
   &:hover {
     background-color: lighten($corFundo, 10%);
   }
+
+}
+
+.ativo{
+  background-color: lighten($corFundo, 10%) !important;
 }

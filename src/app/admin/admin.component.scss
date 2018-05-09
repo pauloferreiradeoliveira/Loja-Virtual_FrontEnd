@@ -64,6 +64,14 @@ aside {
 }
 /* ASIDE - Fim */
 main {
+  section{
+    margin-top: 20px;
+  }
+
+  position: absolute;
+  height: 100%;
+  background-color: #e5e5e5;
+
   .titulo {
     background-color: lighten($corHeader, 10%);
     color: #fff;
@@ -94,11 +102,12 @@ main {
     &:hover {
       background-color: darken($corHeader, 10%);
     }
+
   }
 }
 
+// DropDraw
 div.princiapal{
-
   top: 60px;
   @media only screen and (min-width: 769px){
     top: 42px;
@@ -133,6 +142,14 @@ div.princiapal{
     margin-bottom: -0.4rem;
     margin-right:0;
     padding: .875em;
+
+    button{
+      width: 80px;
+      i{
+         @extend %center;
+         float: left;
+      }
+    }
 
   }
 
