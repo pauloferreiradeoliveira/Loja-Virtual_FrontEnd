@@ -8,12 +8,12 @@
               <b>Art's Fatima</b>
               <br/>
               <small>
-                <img src="assets/images/svg/lock.svg"> Área Restrita</small>
+                <i class="fas fa-lock"></i> Área Restrita</small>
             </h1>
             <br/>
 
             <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="sharedForm.verficarForm()">
-              <strong>Atenção!</strong> Usuario ou Senha Invalidos.
+              <strong><i class="fas fa-exclamation-triangle"></i> Atenção!</strong> Usuario ou Senha Invalidos.
             </div>
 
             <form [formGroup]="formulario">
@@ -22,7 +22,9 @@
                 <label for="nome">Nome:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><img src="assets/images/svg/person_black.svg"> </div>
+                    <div class="input-group-text">
+                      <i class="fas fa-user"></i>
+                    </div>
                   </div>
                   <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Entre com seu Nome" [ngClass]="sharedForm.aplicarCssErro('nome')">
                 </div>
@@ -33,14 +35,16 @@
                 <label for="senha">Senha:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><img src="assets/images/svg/key.svg"></div>
+                    <div class="input-group-text">
+                      <i class="fas fa-key"></i>
+                    </div>
                   </div>
                   <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="Entre com sua Senha" [ngClass]="sharedForm.aplicarCssErro('senha')">
                 </div>
                 <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('senha')">Campo Obrigatório</small>
               </div>
               <br>
-              <button type="submit" class="btn btn-primary col-12" [disabled]="formulario.invalid">Entrar</button>
+              <button type="submit" class="btn btn-primary col-12" [disabled]="formulario.invalid"><i class="fas fa-sign-in-alt"></i> Entrar</button>
             </form>
           </div>
         </div>

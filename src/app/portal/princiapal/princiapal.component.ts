@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Produto } from '../../comum/class/produto';
 import { ProdutosService } from '../../comum/servicos/produtos.service';
 import { CarrinhoService } from '../comum/servicos/carrinho.service';

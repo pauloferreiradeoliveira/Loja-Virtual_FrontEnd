@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
 
 import { PortalComponent } from './portal.component';
 import { PortalRoutes } from './portal.routing.module';
@@ -23,7 +22,6 @@ import { HeaderModule } from './header/header.module';
   imports: [
     CommonModule,
     PortalRoutes,
-    HttpModule,
     ComumPortalModule,
     ComumMmodule,
     HeaderModule

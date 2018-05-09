@@ -8,7 +8,7 @@ import { EnderecoService } from '../../../comum/servicos/endereco.service';
 import { Endereco } from '../../../comum/class/endereco';
 import { UsuarioService } from '../../../comum/servicos/usuario.service';
 import { Usuario } from '../../../comum/class/usuario';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({

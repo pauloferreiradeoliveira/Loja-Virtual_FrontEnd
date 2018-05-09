@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Categorias } from '../../comum/class/categoria';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class CategoriasService {
@@ -10,19 +10,14 @@ export class CategoriasService {
   private lugar = 'assets/dados/categorias.json';
   private lugar1 = 'assets/dados/categoria.json';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getCadegorias(): Observable<Categorias[]> {
-    return this.http
-        .get(this.lugar)
-        .map(dados => dados.json());
-   // return this.resposta;
+    return this.http.get<Categorias[]>(this.lugar);
   }
 
   getCadegoria(id: number): Observable<Categorias> {
     // console.log(id);
-    return this.http
-            .get(this.lugar1)
-            .map(dados => dados.json());
+    return this.http.get<Categorias>(this.lugar1);
   }
 }

@@ -1,28 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { Produto } from '../class/produto';
+
 
 @Injectable()
 export class ProdutosService {
 
    private lugar = 'assets/dados/produto.json';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getProduto(): Observable<Produto[]> {
-    return this.http
-        .get(this.lugar)
-        .map(dados => dados.json());
+    return this.http.get<Produto[]>(this.lugar);
    // return this.resposta;
   }
 
   getProdutoCategoria(id: number): Observable<Produto[]> {
 
-    return this.http
-        .get(this.lugar)
-        .map(dados => dados.json());
+    return this.http.get<Produto[]>(this.lugar);
   }
 
 }

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 import { Endereco } from '../class/endereco';
+
 
 @Injectable()
 export class EnderecoService {
 
   private lugar = 'assets/dados/produto.json';
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getEstados() {
 
@@ -22,8 +23,7 @@ export class EnderecoService {
      const validacep = /^[0-9]{8}$/;
      if (validacep.test(cep)) {
        // Buscar os Dados
-       return this.http.get(`https://viacep.com.br/ws/${cep}/json`)
-         .map(dados => dados.json());
+       return this.http.get<Endereco>(`https://viacep.com.br/ws/${cep}/json`);
      }
     }
     return null;
