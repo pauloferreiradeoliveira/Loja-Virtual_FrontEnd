@@ -9,6 +9,7 @@ import { NavegacaoComponent } from './navegacao/navegacao.component';
 import { CategoriaModule } from './categoria/categoria.module';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

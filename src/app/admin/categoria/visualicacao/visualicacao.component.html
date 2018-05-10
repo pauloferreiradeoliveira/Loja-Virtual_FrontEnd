@@ -1,0 +1,20 @@
+<section class="row">
+  <h1 class="col-12">
+    <i class="fas fa-cube"></i> {{ categoria.nome }}</h1>
+  <article class="col-12">
+    <p>
+      <small> Id </small>
+    </p>
+    <p> {{categoria.id }}</p>
+    <p>
+      <small> Nome </small>
+    </p>
+    <p> {{categoria.nome }}</p>
+  </article>
+  <article class="footer col-12">
+    <button class="btn btn-warning float-lg-right" [routerLink]="['/admin/categorias',categoria.id,'/editar']">
+      <i class="fas fa-edit"></i> Editar</button>
+    <button class="btn btn-danger float-lg-right">
+      <i class="fas fa-trash"></i> Deletar</button>
+  </article>
+</section>

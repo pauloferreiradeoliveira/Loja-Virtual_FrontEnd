@@ -9,6 +9,16 @@ section{
   border-radius: 1%;
   padding: 20px;
   margin-top: 10px;
+  margin-left: 10px;
   border-top: 3px solid $corHeader;
+}
+
+ul{
+  margin-left: 10px;
+}
+
+.ativo{
+  background-color: $corHeader;
+  color: $corTextoHeader;
 }
 

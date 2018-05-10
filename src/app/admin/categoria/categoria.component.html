@@ -2,26 +2,34 @@
   <i class="fas fa-cubes"></i> Categoria
 </h1>
 
-<section class="col-12">
-  <div class="row">
-    <div class="col-6 row">
-      <article class="col-12 row">
-        <div class="form-group col-8">
-          <input type="text" class="form-control" id="Pesquisa" placeholder="Pesquisa Categoria">
-        </div>
-        <div class="col-4">
-          <button class="btn btn-success">
-            <i class="fas fa-plus"></i> Adicionar</button>
-        </div>
-      </article>
-      <article class="col-12 list-group conteiner">
-        <a *ngFor="let categoria of categorias" class="list-group-item list-group-item-action">
+<div class="row">
+  <section class="col-12  col-md-6">
+    <div class="row">
+      <div class="col-12 row">
+        <article class="col-12 row">
+          <div class="form-group col-8">
+            <input type="text" class="form-control" id="Pesquisa" placeholder="Pesquisa Categoria" [(ngModel)]="filtro">
+          </div>
+          <div class="col-4">
+            <button class="btn btn-success float-lg-right" routerLink="/admin/categorias/novo">
+              <i class="fas fa-plus"></i> Adicionar</button>
+          </div>
+        </article>
+        <ul class="col-12 list-group conteiner">
+          <li *ngFor="let categoria of pegarCadegorias()"
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/admin/categorias',categoria.id]"
+          routerLinkActive="ativo"
+          >
             {{categoria.nome}}
-        </a>
-      </article>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-6 row">
-
+  </section>
+  <section class="col-12  col-md-5">
+    <div class="col-12 row">
+      <router-outlet class="conteiner"></router-outlet>
     </div>
-  </div>
-</section>
+  </section>
+</div>
