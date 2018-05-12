@@ -19,30 +19,30 @@ export class CategoriaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.categoriasSubcripiton = this.categoriaService.getCadegorias().subscribe(
-      (data)=> this.categorias = data
+      (data) => this.categorias = data
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.categoriasSubcripiton.unsubscribe();
   }
 
   // Para poder aplicar filtro
-  pegarCadegorias(){
+  pegarCadegorias() {
 
-    if(this.categorias.length === 0 || this.filtro === undefined){
+    if (this.categorias.length === 0 || this.filtro === undefined) {
       return this.categorias;
     }
 
     // aplicando filtro
     return this.categorias.filter(
-      (v) =>{
-       if( v.nome.toLocaleLowerCase().indexOf(this.filtro.toLowerCase()) >= 0){
+      (v) => {
+       if ( v.nome.toLocaleLowerCase().indexOf(this.filtro.toLowerCase()) >= 0) {
          return true;
        }
        return false;
       }
-    )
+    );
   }
 }
 

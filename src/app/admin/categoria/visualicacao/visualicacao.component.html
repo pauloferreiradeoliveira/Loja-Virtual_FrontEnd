@@ -12,9 +12,36 @@
     <p> {{categoria.nome }}</p>
   </article>
   <article class="footer col-12">
-    <button class="btn btn-warning float-lg-right" [routerLink]="['/admin/categorias',categoria.id,'/editar']">
+    <button class="btn btn-warning float-lg-right" (click)="onClickEditar(modal)">
       <i class="fas fa-edit"></i> Editar</button>
-    <button class="btn btn-danger float-lg-right">
+    <button class="btn btn-danger float-lg-right" (click)="onClickDeletar(modal)">
       <i class="fas fa-trash"></i> Deletar</button>
   </article>
 </section>
+
+<ng-template #modal>
+  <!-- Parte Titulo - Modal -->
+  <div class="modal-header">
+    <h5 class="modal-title" id="titulo">{{ modalTexto[0] }}</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- Parte Corpo - Modal -->
+  <div class="modal-body">
+    <i class="fas fa-spinner fa-pulse" [hidden]="modalTexto.length === 2"></i>
+    <p id="corpo">{{ modalTexto[1] }}</p>
+    <p>{{ modalTexto[2] }}</p>
+  </div>
+  <!-- Parte Final - Modal -->
+  <div class="modal-footer">
+    <button type="button" id="fechar" class="btn" (click)="modalRef.hide()">
+      <i class="fas fa-times"></i> Fechar</button>
+    <button type="button" id="fechar" class="btn btn-danger" *ngIf="tipo === 2" (click)="modalRef.hide()">
+      <i class="fas fa-trash"></i> Deletar</button>
+    <button type="button" id="fechar" class="btn btn-warning"
+     *ngIf="tipo === 1" (click)="modalRef.hide()"
+     [routerLink]="['/admin/categorias',categoria.id,'editar']">
+      <i class="fas fa-edit"></i> Editar</button>
+  </div>
+</ng-template>

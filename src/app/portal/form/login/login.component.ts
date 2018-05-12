@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SharedForm } from '../comum/shared-form';
+import { SharedForm } from '../../../comum/formularios/shared-form';
 
 
 @Component({

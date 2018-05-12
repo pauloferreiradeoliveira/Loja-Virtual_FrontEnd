@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SharedForm } from '../../portal/form/comum/shared-form';
+import { SharedForm } from '../../comum/formularios/shared-form';
+
 
 @Component({
   selector: 'app-login',

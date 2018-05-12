@@ -1,15 +1,15 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 // Proprio
-import { SharedForm } from '../comum/shared-form';
 import { EnderecoService } from '../../../comum/servicos/endereco.service';
 import { Endereco } from '../../../comum/class/endereco';
 import { UsuarioService } from '../../../comum/servicos/usuario.service';
 import { Usuario } from '../../../comum/class/usuario';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { SharedForm } from '../../../comum/formularios/shared-form';
 
 @Component({
   selector: 'app-cadastrar',
