@@ -9,8 +9,6 @@ import { Categorias } from '../../comum/class/categoria';
 export class CategoriasService {
 
   private apiCategoria = `${environment.siteApi}categoria`;
-  private lugar = 'assets/dados/categorias.json';
-  private lugar1 = 'assets/dados/categoria.json';
 
   constructor(private http: HttpClient) { }
 
@@ -28,11 +26,11 @@ export class CategoriasService {
   }
 
   editCadegoria(categoria: Categorias, id: number): Observable<any> {
-    return this.http.put(`${this.apiCategoria}/${id}`, categoria);
+    return this.http.put<any>(`${this.apiCategoria}/${id}`, categoria);
   }
 
   deletarCategoria(id: number) {
-    return this.http.delete(`${this.apiCategoria}/${id}`);
+    return this.http.delete<any>(`${this.apiCategoria}/${id}`);
   }
 
 }

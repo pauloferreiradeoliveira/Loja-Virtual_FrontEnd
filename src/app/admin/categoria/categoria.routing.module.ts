@@ -1,29 +1,28 @@
-import { Routes, RouterModule } from "@angular/router";
-import { NgModule } from "@angular/core";
-import { CategoriaComponent } from "./categoria.component";
-import { VisualicacaoComponent } from "./visualicacao/visualicacao.component";
-import { CategoriasResolver } from "./guard/categorias.resolver";
-import { FormularioCategoriaComponent } from "./formularioCategoria/formularioCategoria.component";
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CategoriaComponent } from './categoria.component';
+import { VisualicacaoComponent } from './visualicacao/visualicacao.component';
+import { CategoriasResolver } from './guard/categorias.resolver';
+import { FormularioCategoriaComponent } from './formularioCategoria/formularioCategoria.component';
 
 const routesAdmin: Routes = [
   {
-    path: "",
+    path: '',
     component: CategoriaComponent,
     children: [
       {
-        path: "novo",
+        path: 'novo',
         component: FormularioCategoriaComponent
       },
       {
-        path: ":id",
+        path: ':id',
         component: VisualicacaoComponent,
         resolve: { cadegoria: CategoriasResolver }
       },
       {
-        path: ":id/editar",
+        path: ':id/editar',
         component: FormularioCategoriaComponent
       }
-
     ]
   }
 ];

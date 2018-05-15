@@ -63,6 +63,8 @@ aside {
   }
 }
 /* ASIDE - Fim */
+
+
 main {
   section{
     margin-top: 20px;
@@ -79,6 +81,7 @@ main {
     border: none;
     height: 50px;
   }
+  /* Parte da Navegação - TOPO - UL */
   ul{
     box-shadow: 0 4px 2px -2px #ccc;
   }
@@ -177,6 +180,7 @@ div.princiapal{
   }
 }
 
+// Para poder Sair do DropDraw
 .final{
   z-index: 900;
   position: absolute;

@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
     this.formulario = this.formBuilder.group({
-      email : [null,[Validators.email, Validators.required]],
-      senha : [null,[Validators.required, Validators.min(8)]]
+      email : [null, [Validators.email, Validators.required]],
+      senha : [null, [Validators.required, Validators.min(8)]]
     });
 
     this.sharedForm = new SharedForm(this.formulario);

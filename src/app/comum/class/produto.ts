@@ -12,5 +12,4 @@ export interface Produto {
   parcela: number;
   idCategoria: number;
 
-
-  }
+}

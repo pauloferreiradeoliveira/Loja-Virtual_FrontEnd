@@ -1,3 +1,5 @@
+@import "~styles.scss";
+
 small {
   color: #aaa;
 }
@@ -14,7 +16,9 @@ small {
   }
 
 }
-
+.alert{
+  color: $vermelho;
+}
 .row{
   margin-right: -25px
 }

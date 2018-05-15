@@ -26,8 +26,9 @@
   </div>
   <!-- Parte Corpo - Modal -->
   <div class="modal-body">
-    <i class="fas fa-spinner fa-pulse" [hidden]="modalTexto.length === 2"></i>
-    <p id="corpo">{{ modalTexto[1] }}</p>
+    <i class="fas fa-spinner fa-pulse" [hidden]="modalTexto.length >= 2"></i>
+    <p>{{ modalTexto[1] }}</p>
+    <p class="erro" [hidden]="modalTexto[2] == null">{{ modalTexto[2] | json }}</p>
   </div>
   <!-- Parte Final - Modal -->
   <div class="modal-footer">

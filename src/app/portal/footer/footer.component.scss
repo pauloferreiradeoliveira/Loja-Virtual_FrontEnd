@@ -1,27 +1,26 @@
-@import '~styles.scss';
+@import "~styles.scss";
 
-footer{
+footer {
   border-top: 5px solid $corPrimaria;
-  background-color:lighten($corPrimaria,10%);
+  background-color: lighten($corPrimaria, 10%);
   margin-top: 20px;
 
+  section {
+    margin-top: 20px;
+  }
 
-section{
-  margin-top: 20px;
-}
-
-h5{
-  color: $textPrimario;
-  font-size: 17px;
-  font-weight: bolder;
-}
-a{
-  color: $textPrimario;
-  font-size: 15px;
-  cursor: pointer;
-}
-a:hover{
-  color: $textPrimario;
-  font-weight: bolder;
-}
+  h5 {
+    color: $textPrimario;
+    font-size: 17px;
+    font-weight: bolder;
+  }
+  a {
+    color: $textPrimario;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  a:hover {
+    color: $textPrimario;
+    font-weight: bolder;
+  }
 }

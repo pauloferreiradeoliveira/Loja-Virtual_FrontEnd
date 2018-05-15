@@ -6,9 +6,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AdminComponent } from './admin.component';
 import { AdminRoutes } from './admin.routing.module';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
 import { NavegacaoComponent } from './navegacao/navegacao.component';
 import { CategoriaModule } from './categoria/categoria.module';
+import { ComumMmodule } from '../comum/comum.module';
 
 
 
@@ -17,16 +18,15 @@ import { CategoriaModule } from './categoria/categoria.module';
   imports: [
     CommonModule,
     AdminRoutes,
-    CategoriaModule,
-    // Para o Login
     FormsModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ComumMmodule
   ],
   declarations: [
     AdminComponent,
     NavegacaoComponent,
     LoginComponent
-]
+  ]
 })
 export class AdminModule {}

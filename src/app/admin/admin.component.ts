@@ -17,12 +17,12 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
-  mostarLogin(){
+  mostarLogin() {
     this.final = !this.final;
     this.login = !this.login;
   }
 
-  fecharLoginPainel(){
+  fecharLoginPainel() {
     this.login = true;
     this.painel = false;
     this.final = false;

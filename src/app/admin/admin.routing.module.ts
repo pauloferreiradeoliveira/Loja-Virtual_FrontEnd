@@ -4,10 +4,10 @@ import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
 
 const routesAdmin: Routes = [
-  {path: '', component: AdminComponent , children:[
-    {path: 'categorias',loadChildren: 'app/admin/categoria/categoria.module#CategoriaModule'},
-    {path: 'produtos',loadChildren: 'app/admin/produtos/produtos.module#ProdutosModule'},
-
+  {path: '', component: AdminComponent , children: [
+    {path: 'categorias', loadChildren: 'app/admin/categoria/categoria.module#CategoriaModule'},
+    {path: 'produtos', loadChildren: 'app/admin/produtos/produtos.module#ProdutosModule'},
+    {path: 'permissoes', loadChildren: 'app/admin/permissao/permissao.module#PermissaoModule'},
   ]},
   {path: 'login', component: LoginComponent}
 ];

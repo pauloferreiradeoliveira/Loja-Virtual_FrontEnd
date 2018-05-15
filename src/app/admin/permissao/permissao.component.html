@@ -1,0 +1,28 @@
+<h1>
+  <i class="fab fa-keycdn"></i> Permissão
+</h1>
+
+<div class="row">
+  <section class="col-12  col-md-6">
+    <div class="row">
+      <div class="col-12 row">
+        <article class="col-12 row">
+          <div class="form-group col-8">
+            <input type="text" class="form-control" id="Pesquisa" placeholder="Pesquisa Permissão" [(ngModel)]="filtro">
+          </div>
+          <div class="col-4">
+            <button class="btn btn-success float-lg-right" routerLink="/admin/permissoes/novo">
+              <i class="fas fa-plus"></i> Adicionar</button>
+          </div>
+        </article>
+        <ul class="col-12 list-group conteiner">
+          <li class="list-group-item list-group-item-action" routerLinkActive="ativo">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="col-12 col-md-5">
+    <router-outlet></router-outlet>
+  </section>
+</div>

@@ -1,5 +1,5 @@
-import { Injectable, EventEmitter } from "@angular/core";
-import { Produto } from "../../../comum/class/produto";
+import { Injectable, EventEmitter } from '@angular/core';
+import { Produto } from '../../../comum/class/produto';
 
 @Injectable()
 export class CarrinhoService {
@@ -16,8 +16,8 @@ export class CarrinhoService {
       listaProdutos = [cat];
 
     } else {
-      if(this.pegarIndex(listaProdutos,cat) === -1) {
-        listaProdutos.push(cat)
+      if (this.pegarIndex(listaProdutos, cat) === -1) {
+        listaProdutos.push(cat);
         // this.produtos.push(cat);
       }
     }
@@ -27,41 +27,40 @@ export class CarrinhoService {
   }
 
   getCarrinho(): void {
-    let listaProdutos = this.getLocalCarrinho();
-    this.emitirProdutoAdicionado.emit(listaProdutos);
+  // listaProdutos = this.getLocalCarrinho();
+    this.emitirProdutoAdicionado.emit(this.getLocalCarrinho());
   }
 
+  // Removendo os produtos
   removeCarrinho(removeProduto: Produto): void {
-    let listaProdutos: Produto[] = this.getLocalCarrinho();
+    const listaProdutos: Produto[] = this.getLocalCarrinho();
 
-    const index: number = this.pegarIndex(listaProdutos,removeProduto);
-
-    console.log(index);
+    const index: number = this.pegarIndex(listaProdutos, removeProduto);
 
     if (index !== -1) {
       listaProdutos.splice(index, 1);
     }
-    localStorage.setItem('carrinho',JSON.stringify(listaProdutos));
+    localStorage.setItem('carrinho', JSON.stringify(listaProdutos));
     this.setLocalCarrinho(listaProdutos);
   }
 
-  private getLocalCarrinho(): Produto[]{
+  // Pegando os dados do carrinho
+  private getLocalCarrinho(): Produto[] {
     return JSON.parse(localStorage.getItem('carrinho'));
   }
 
-  private setLocalCarrinho(listaProdutos: Produto[]){
-    localStorage.setItem('carrinho',JSON.stringify(listaProdutos));
+  private setLocalCarrinho(listaProdutos: Produto[]) {
+    localStorage.setItem('carrinho', JSON.stringify(listaProdutos));
     this.emitirProdutoAdicionado.emit(listaProdutos);
   }
 
-  private pegarIndex(lista: Produto[],pro: Produto): number{
-
+  private pegarIndex(lista: Produto[], pro: Produto): number {
     for (let i = 0; i < lista.length; i++) {
-      if(lista[i].id === pro.id){
+      if (lista[i].id === pro.id) {
         return i;
       }
      }
     return -1;
-
   }
+
 }

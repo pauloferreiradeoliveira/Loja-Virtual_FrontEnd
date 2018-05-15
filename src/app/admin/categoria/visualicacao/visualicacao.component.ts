@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Categorias } from '../../../comum/class/categoria';
+import { CategoriasService } from '../../../comum/servicos/categorias.service';
 
 @Component({
   selector: 'app-visualicacao',
@@ -22,7 +23,8 @@ export class VisualicacaoComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private categoriaService: CategoriasService
   ) {}
 
   // Hora de Inicializar
@@ -46,7 +48,7 @@ export class VisualicacaoComponent implements OnInit, OnDestroy {
   }
 
   onClickDeletar(modal) {
-    this.constucaoModal('Alerta', 'Realmente deseja Excluir ?', 'Ira deletar todos os produtos desta categoria');
+    this.constucaoModal('Alerta', 'Realmente deseja Excluir ?', 'Deletar todos os produtos desta categoria');
     this.tipo = 2;
     this.openModal(modal);
   }
@@ -55,9 +57,22 @@ export class VisualicacaoComponent implements OnInit, OnDestroy {
     this.modalRef = this.modalService.show(template);
   }
 
-  constucaoModal(titulo: string, body: string, maisBody: string) {
+  constucaoModal(titulo: string, body: string, maisBody: string | null) {
     this.modalTexto[0] = titulo;
     this.modalTexto[1] = body;
     this.modalTexto[2] = maisBody;
+  }
+
+  deletarCategoria() {
+    this.categoriaService.deletarCategoria(this.categoria.id).subscribe(
+      dados => {
+        this.tipo = 0;
+        this.constucaoModal('Foi deletado sucesso', 'A categoria foi deletado com sucesso.', null);
+        this.router.navigate(['/admin/categorias']);
+      },
+      (error: any) => {
+        this.constucaoModal('Ocorreu um Erro', 'Tente mais Tarde', error);
+      }
+    );
   }
 }

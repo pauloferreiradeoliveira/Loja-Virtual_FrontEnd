@@ -3,7 +3,7 @@ import { ProdutosComponent } from './produtos.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  {path: '', component: ProdutosComponent,  children:[
+  {path: '', component: ProdutosComponent,  children: [
 
   ]},
 ];

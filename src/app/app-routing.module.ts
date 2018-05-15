@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: 'app/portal/portal.module#PortalModule'},
-  {path:'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
+  {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

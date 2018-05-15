@@ -1,27 +1,25 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs';
-
-import { Categorias } from '../../../comum/class/categoria';
-import { CategoriasService } from '../../../comum/servicos/categorias.service';
 import { SharedForm } from '../../../comum/formularios/shared-form';
-
-
+import { TipoUser } from '../../shared/model/tipo-user';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PermissaoService } from '../../shared/servicos/permissao.service';
+import { Navegacao } from '../../shared/model/navegacao.enum';
 
 @Component({
-  selector: 'app-formulariocategoria',
-  templateUrl: './formularioCategoria.component.html',
-  styleUrls: ['./formularioCategoria.component.scss']
+  selector: 'app-formulario-permissao',
+  templateUrl: './formularioPermissao.component.html',
+  styleUrls: ['./formularioPermissao.component.scss']
 })
+export class FormularioPermissaoComponent implements OnInit {
 
-export class FormularioCategoriaComponent implements OnInit {
-
-  categoria: Categorias;
+  tipoUser: TipoUser;
   inscricao: Subscription;
   formulario: FormGroup;
   modalRef: BsModalRef;
+  navegacao: Navegacao;
 
   sharedForm: SharedForm;
 
@@ -34,7 +32,7 @@ export class FormularioCategoriaComponent implements OnInit {
   constructor(
     private route: Router,
     private activeRoute: ActivatedRoute,
-    private categoriaService: CategoriasService,
+    private permissaoService: PermissaoService,
     private formBuilder: FormBuilder,
     private modalService: BsModalService
   ) {}
@@ -58,7 +56,7 @@ export class FormularioCategoriaComponent implements OnInit {
       } else {
         this.addConstrucao('Editar', 'fas fa-edit', 2);
 
-        this.categoriaService.getCadegoria(id).subscribe(data => {
+        this.permissaoService.getTitpoUser(id).subscribe(data => {
           this.formulario.patchValue({
             id: data.id,
             nome: data.nome
@@ -95,7 +93,7 @@ export class FormularioCategoriaComponent implements OnInit {
       const valor = this.formulario.value;
       switch (this.tipo) {
         case 1:
-          this.categoriaService.addCadegoria(valor).subscribe(
+          this.permissaoService.insertTipoUser(valor).subscribe(
             dados => {
               this.criarModal('Cadastrado com Sucesso', 'A categoria foi cadastrado com sucesso.', null);
               this.route.navigate(['/admin/categorias']);
@@ -106,7 +104,7 @@ export class FormularioCategoriaComponent implements OnInit {
           );
           break;
         case 2:
-          this.categoriaService.editCadegoria(valor, valor.id).subscribe(
+          this.permissaoService.uploadTipoUser(valor, valor.id).subscribe(
             dados => {
               this.criarModal('Editado com Sucesso', 'A editado foi cadastrado com sucesso.', null);
               this.route.navigate(['/admin/categorias']);

@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { CategoriasService } from '../../comum/servicos/categorias.service';
 import { Categorias } from '../../comum/class/categoria';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categoria',
