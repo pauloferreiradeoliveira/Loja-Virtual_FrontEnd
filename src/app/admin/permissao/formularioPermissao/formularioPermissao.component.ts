@@ -2,11 +2,13 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 import { SharedForm } from '../../../comum/formularios/shared-form';
 import { TipoUser } from '../../shared/model/tipo-user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PermissaoService } from '../../shared/servicos/permissao.service';
 import { Navegacao } from '../../shared/model/navegacao.enum';
+import { PermissaoService } from '../../shared/servicos/permissao.service';
+import { Permissao } from '../../shared/model/permissao';
 
 @Component({
   selector: 'app-formulario-permissao',
@@ -41,7 +43,16 @@ export class FormularioPermissaoComponent implements OnInit {
     // Criando o formulario
     this.formulario = this.formBuilder.group({
       id: [null],
-      nome: [null, Validators.required]
+      nome: [null, Validators.required],
+      permissao: this.formBuilder.group({
+        categoria: [null, Validators.required],
+        produto: [null, Validators.required],
+        cliente: [null, Validators.required],
+        funcionario: [null, Validators.required],
+        permissao: [null, Validators.required],
+        vendas: [null, Validators.required],
+        empresa: [null, Validators.required]
+      })
     });
 
     // Para poder auxliar o formulario
@@ -90,13 +101,14 @@ export class FormularioPermissaoComponent implements OnInit {
     this.modalTexto = [];
     // Verificar o formulario
     if (this.formulario.valid) {
-      const valor = this.formulario.value;
+      console.log(this.construirObjeto());
+
       switch (this.tipo) {
         case 1:
-          this.permissaoService.insertTipoUser(valor).subscribe(
+          this.permissaoService.insertTipoUser(this.construirObjeto()).subscribe(
             dados => {
-              this.criarModal('Cadastrado com Sucesso', 'A categoria foi cadastrado com sucesso.', null);
-              this.route.navigate(['/admin/categorias']);
+              this.criarModal('Permissão com Sucesso', 'A Permissão foi cadastrado com sucesso.', null);
+              // this.route.navigate(['/admin/permissoes']);
             },
             (error: any) => {
               this.criarModal('Ocorreu um Erro', 'Tente mais Tarde', error);
@@ -104,10 +116,10 @@ export class FormularioPermissaoComponent implements OnInit {
           );
           break;
         case 2:
-          this.permissaoService.uploadTipoUser(valor, valor.id).subscribe(
+          this.permissaoService.uploadTipoUser(this.construirObjeto(), this.formulario.value.id).subscribe(
             dados => {
-              this.criarModal('Editado com Sucesso', 'A editado foi cadastrado com sucesso.', null);
-              this.route.navigate(['/admin/categorias']);
+              this.criarModal('Editado com Sucesso', 'A Permissão foi editado com sucesso.', null);
+              this.route.navigate(['/admin/permissoes']);
             },
             (error: any) => {
               this.criarModal('Ocorreu um Erro', 'Tente mais Tarde', error);
@@ -120,5 +132,54 @@ export class FormularioPermissaoComponent implements OnInit {
       this.modalTexto[1] = 'Por Favor, Preenchar os Campos';
     }
     this.openModal(modal);
+  }
+
+  construirObjeto(): TipoUser {
+    const permissoes = this.formulario.value.permissao;
+    const permissao: Permissao[] = [
+      {
+        id: null,
+        permissao: permissoes.categoria,
+        navegacao: Navegacao.Categoria,
+      },
+      {
+        id: null,
+        permissao: permissoes.produto,
+        navegacao: Navegacao.Produtos,
+      },
+      {
+        id: null,
+        permissao: permissoes.cliente,
+        navegacao: Navegacao.Cliente,
+      },
+      {
+        id: null,
+        permissao: permissoes.funcionario,
+        navegacao: Navegacao.Funcionario,
+      },
+      {
+        id: null,
+        permissao: permissoes.permissao,
+        navegacao: Navegacao.Permissões,
+      },
+      {
+        id: null,
+        permissao: permissoes.vendas,
+        navegacao: Navegacao.Vendas,
+      },
+      {
+        id: null,
+        permissao: permissoes.empresa,
+        navegacao: Navegacao.Empresa,
+      }
+    ];
+
+    const d: TipoUser = {
+      id: null,
+      nome: this.formulario.value.nome,
+      permissao: permissao
+    };
+
+    return d;
   }
 }

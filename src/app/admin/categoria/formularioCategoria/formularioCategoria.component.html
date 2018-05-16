@@ -17,21 +17,27 @@
 </section>
 
 <ng-template #modal>
-  <!-- Parte Titulo - Modal -->
-  <div class="modal-header">
-    <h5 class="modal-title" id="titulo">{{ modalTexto[0] }}</h5>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <!-- Parte Corpo - Modal -->
-  <div class="modal-body">
-    <i class="fas fa-spinner fa-pulse" [hidden]="modalTexto.length >= 2"></i>
-    <p>{{ modalTexto[1] }}</p>
-    <p class="erro" [hidden]="modalTexto[2] == null">{{ modalTexto[2] | json }}</p>
-  </div>
-  <!-- Parte Final - Modal -->
-  <div class="modal-footer">
-    <button type="button" id="fechar" class="btn btn-success"  (click)="modalRef.hide()">Fechar</button>
-  </div>
-</ng-template>
+    <!-- Parte Titulo - Modal -->
+    <div class="modal-header">
+      <h5 class="modal-title" id="titulo">{{ modalTexto[0] }}</h5>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- Parte Corpo - Modal -->
+    <div class="modal-body">
+      <i class="fas fa-spinner fa-pulse" [hidden]="modalTexto.length >= 2"></i>
+      <p id="corpo">{{ modalTexto[1] }}</p>
+      <p class="alert">{{ modalTexto[2] }}</p>
+    </div>
+    <!-- Parte Final - Modal -->
+    <div class="modal-footer">
+      <button type="button" class="btn" (click)="modalRef.hide()">
+        <i class="fas fa-times"></i> Fechar
+      </button>
+    </div>
+  </ng-template>
+
+
+
+

@@ -6,12 +6,8 @@ import { ProdutosService } from './servicos/produtos.service';
 import { EnderecoService } from './servicos/endereco.service';
 import { UsuarioService } from './servicos/usuario.service';
 
-
-
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [DinheiroPipe],
   exports: [DinheiroPipe],
   providers: [
@@ -21,4 +17,4 @@ import { UsuarioService } from './servicos/usuario.service';
     UsuarioService
   ]
 })
-export class ComumMmodule { }
+export class ComumMmodule {}

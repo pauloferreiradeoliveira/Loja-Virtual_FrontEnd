@@ -1,0 +1,24 @@
+@import "~styles.scss";
+
+small {
+  color: #aaa;
+}
+
+.footer {
+  background-color: #f2f2f2;
+  border-top: 1px solid #e5e5e5;
+  margin-left: -0.3rem;
+  margin-bottom: -1.3rem;
+  padding: 0.875em;
+
+  button{
+    margin-left: 10px;
+  }
+
+}
+.alert{
+  color: $vermelho;
+}
+.row{
+  margin-right: -25px
+}

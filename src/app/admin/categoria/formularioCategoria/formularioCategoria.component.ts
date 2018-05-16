@@ -1,12 +1,13 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
 
 import { Categorias } from '../../../comum/class/categoria';
 import { CategoriasService } from '../../../comum/servicos/categorias.service';
 import { SharedForm } from '../../../comum/formularios/shared-form';
+
 
 
 
@@ -21,13 +22,14 @@ export class FormularioCategoriaComponent implements OnInit {
   categoria: Categorias;
   inscricao: Subscription;
   formulario: FormGroup;
+
   modalRef: BsModalRef;
 
   sharedForm: SharedForm;
 
   // Consturação
   constucao: string[] = [];
-  modalTexto: string[] = [];
+  modalTexto: string[] = ['', '', ''];
   // 1- editar , 2- novo
   tipo: number;
 
@@ -36,7 +38,7 @@ export class FormularioCategoriaComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private categoriaService: CategoriasService,
     private formBuilder: FormBuilder,
-    private modalService: BsModalService
+    private modalService: BsModalService,
   ) {}
 
   ngOnInit() {
@@ -73,11 +75,6 @@ export class FormularioCategoriaComponent implements OnInit {
     this.constucao[0] = titulo;
     this.constucao[1] = estilo;
     this.tipo = tipo;
-  }
-
-  // Modal
-  openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template);
   }
 
   criarModal(titulo: string, body: string, erros: string | null) {
@@ -122,5 +119,11 @@ export class FormularioCategoriaComponent implements OnInit {
       this.modalTexto[1] = 'Por Favor, Preenchar os Campos';
     }
     this.openModal(modal);
+  }
+
+
+  // Modal
+  openModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
   }
 }

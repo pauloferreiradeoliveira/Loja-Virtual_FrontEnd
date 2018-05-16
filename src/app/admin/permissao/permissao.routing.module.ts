@@ -2,6 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PermissaoComponent } from './permissao.component';
 import { FormularioPermissaoComponent } from './formularioPermissao/formularioPermissao.component';
+import { VisualicacaoComponent } from './visualicacao/visualicacao.component';
+import { PermissaoResolver } from './guard/permissao.resolver';
 
 const routesAdmin: Routes = [
   {
@@ -13,7 +15,11 @@ const routesAdmin: Routes = [
         component: FormularioPermissaoComponent
       },
       {
-        path: ':id'
+        path: ':id',
+        component: VisualicacaoComponent,
+        resolve: {
+          dados: PermissaoResolver
+        }
       },
       {
         path: ':id/editar',

@@ -1,82 +1,89 @@
 <section class="row">
-  <form class="col-12" [formGroup]="formulario" (ngSubmit)="onSubmit(modal)" >
+  <form class="col-12" [formGroup]="formulario" (ngSubmit)="onSubmit(modal)">
     <h1>
       <i [ngClass]="constucao[1]"></i> {{ constucao[0] }}</h1>
-    <div class="form-group ">
-      <label for="">Id</label>
-      <input type="number" readonly class="form-control" id="id" formControlName="id">
+    <div class="form-row">
+      <div class="form-group col-2 ">
+        <label for="">Id</label>
+        <input type="number" readonly class="form-control" id="id" formControlName="id">
+      </div>
+      <div class="form-group col-10">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite o nome da Categoria" formControlName="nome" [ngClass]="sharedForm.aplicarCssErro('nome')">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" class="form-control" id="nome"
-       placeholder="Digite o nome da Categoria" formControlName="nome" [ngClass]="sharedForm.aplicarCssErro('nome')">
-    </div>
-    <div class="form-group">
-      <label><i class="fas fa-key"></i> Permissão</label>
-      <div class="form-group">
+    <label>
+      <i class="fas fa-key"></i> Permissão</label>
+    <div class="form-row" formGroupName="permissao">
+
+
+      <div class="form-group col-6">
         Categoria
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.categoria')" formControlName="categoria">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Produtos
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.produto')" formControlName="produto">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Cliente
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.cliente')" formControlName="cliente">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Funcionario
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.funcionario')" formControlName="funcionario">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Permissões
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.permissao')" formControlName="permissao">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Vendas
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.vendas')" formControlName="vendas">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
+
       </div>
-      <div class="form-group">
+      <div class="form-group col-6">
         Empresa
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Escolhar</option>
-          <option value="1">Ler</option>
-          <option value="2">Ler, Adicionar</option>
-          <option value="3">Ler, Adicionar, Deletar</option>
+        <select class="custom-select" [ngClass]="sharedForm.aplicarCssErro('permissao.empresa')" formControlName="empresa">
+          <option value="N" selected>Sem Acesso</option>
+          <option value="R">Ler</option>
+          <option value="RE">Ler, Adicionar</option>
+          <option value="RED">Ler, Adicionar, Deletar</option>
         </select>
+
       </div>
     </div>
+
     <button type="submit" class="btn btn-primary float-lg-right">
       <i class="fas fa-save"></i> Salvar</button>
   </form>
@@ -98,6 +105,6 @@
   </div>
   <!-- Parte Final - Modal -->
   <div class="modal-footer">
-    <button type="button" id="fechar" class="btn btn-success"  (click)="modalRef.hide()">Fechar</button>
+    <button type="button" id="fechar" class="btn btn-success" (click)="modalRef.hide()">Fechar</button>
   </div>
 </ng-template>

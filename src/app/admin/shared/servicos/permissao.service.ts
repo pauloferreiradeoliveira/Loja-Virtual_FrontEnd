@@ -10,8 +10,8 @@ import { Permissao } from '../model/permissao';
 })
 export class PermissaoService {
 
-  private tipoUser = `${environment.siteApi}/tipouser`;
-  private permissao = `${this.tipoUser}/permissao`;
+  private tipoUser = `${environment.siteApi}permissao`;
+  // private permissao = `${this.tipoUser}/permissao`;
 
   constructor(private httpCliente: HttpClient) {}
 
@@ -23,7 +23,14 @@ export class PermissaoService {
     return this.httpCliente.get<TipoUser[]>(this.tipoUser);
   }
 
+  getPermisao(id: number): Observable<Permissao[]> {
+    console.log(`${this.tipoUser}/tipos/${id}`);
+    return this.httpCliente.get<Permissao[]>(`${this.tipoUser}/tipos/${id}`);
+  }
+
   insertTipoUser(tipo: TipoUser): Observable<any> {
+    console.log(this.tipoUser);
+
     return this.httpCliente.post<any>(this.tipoUser, tipo);
   }
 

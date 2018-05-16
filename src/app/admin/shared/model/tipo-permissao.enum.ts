@@ -1,3 +1,3 @@
 export enum TipoPermissao {
-  'R', 'RE', 'RED'
+  'N', 'R', 'RE', 'RED'
 }
