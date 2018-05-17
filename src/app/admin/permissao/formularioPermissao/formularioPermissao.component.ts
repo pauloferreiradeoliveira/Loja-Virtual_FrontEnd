@@ -108,7 +108,7 @@ export class FormularioPermissaoComponent implements OnInit {
           this.permissaoService.insertTipoUser(this.construirObjeto()).subscribe(
             dados => {
               this.criarModal('Permissão com Sucesso', 'A Permissão foi cadastrado com sucesso.', null);
-              // this.route.navigate(['/admin/permissoes']);
+              this.route.navigate(['/admin/permissoes']);
             },
             (error: any) => {
               this.criarModal('Ocorreu um Erro', 'Tente mais Tarde', error);

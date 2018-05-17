@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PermissaoComponent } from './permissao.component';
 import { PermissaoRoutes } from './permissao.routing.module';
 import { FormularioPermissaoComponent } from './formularioPermissao/formularioPermissao.component';
 import { VisualicacaoComponent } from './visualicacao/visualicacao.component';
 import { PermissaoResolver } from './guard/permissao.resolver';
+import { NavegacaoPipe } from '../shared/pipes/navegacao.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PermissaoResolver } from './guard/permissao.resolver';
   declarations: [
     PermissaoComponent,
     FormularioPermissaoComponent,
-    VisualicacaoComponent
+    VisualicacaoComponent,
+    NavegacaoPipe
 ],
   providers: [
     PermissaoResolver

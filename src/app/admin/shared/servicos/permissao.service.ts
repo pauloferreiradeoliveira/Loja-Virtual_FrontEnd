@@ -24,7 +24,6 @@ export class PermissaoService {
   }
 
   getPermisao(id: number): Observable<Permissao[]> {
-    console.log(`${this.tipoUser}/tipos/${id}`);
     return this.httpCliente.get<Permissao[]>(`${this.tipoUser}/tipos/${id}`);
   }
 

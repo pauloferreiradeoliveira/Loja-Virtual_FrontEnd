@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Categorias } from '../../comum/class/categoria';
 import { CategoriasService } from '../../comum/servicos/categorias.service';
 import { Produto } from '../../comum/class/produto';
-import { CarrinhoService } from '../comum/servicos/carrinho.service';
+import { CarrinhoService } from '../shared/servicos/carrinho.service';
 import { Router } from '@angular/router';
 
 
@@ -70,15 +70,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // Rotas
 
-  dropdrawCarrinho(){
-    if(!this.loginMostrando){
+  dropdrawCarrinho() {
+    if (!this.loginMostrando) {
       this.loginMostrando = true;
     }
     this.carrinhoMostrando = !this.carrinhoMostrando;
   }
 
-  dropdrawUser(){
-    if(!this.carrinhoMostrando){
+  dropdrawUser() {
+    if (!this.carrinhoMostrando) {
       this.carrinhoMostrando = true;
     }
     this.loginMostrando = !this.loginMostrando;

@@ -17,4 +17,4 @@ import { UsuarioService } from './servicos/usuario.service';
     UsuarioService
   ]
 })
-export class ComumMmodule {}
+export class ComumModule {}

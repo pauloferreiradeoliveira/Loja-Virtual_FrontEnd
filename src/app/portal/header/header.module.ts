@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { HeaderComponent } from './header.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProdutoCarrinhoComponent } from './produtos-carrinho/produto-carrinho.component';
-import { ComumMmodule } from '../../comum/comum.module';
-import { CarrinhoService } from '../comum/servicos/carrinho.service';
-
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { ComumModule } from '../../comum/comum.module';
 import { LoginComponent } from './login/login.component';
+import { CarrinhoService } from '../shared/servicos/carrinho.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    ComumMmodule,
+    ComumModule,
     CollapseModule.forRoot(),
   ],
   declarations: [
@@ -23,9 +22,7 @@ import { LoginComponent } from './login/login.component';
     ProdutoCarrinhoComponent,
     LoginComponent
 ],
-  exports:[
-    HeaderComponent
-  ],
+  exports: [HeaderComponent],
   providers: [CarrinhoService]
 })
 export class HeaderModule { }

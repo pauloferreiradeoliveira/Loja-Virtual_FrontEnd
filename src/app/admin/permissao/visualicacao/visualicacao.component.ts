@@ -5,6 +5,7 @@ import { TipoUser } from '../../shared/model/tipo-user';
 import { Subscription } from 'rxjs';
 import { PermissaoService } from '../../shared/servicos/permissao.service';
 import { Permissao } from '../../shared/model/permissao';
+import { TipoPermissao } from '../../shared/model/tipo-permissao.enum';
 
 @Component({
   selector: 'app-visualicacao',
@@ -37,8 +38,6 @@ export class VisualicacaoComponent implements OnInit, OnDestroy {
         this.dados = info.dados;
         this.permissaoService.getPermisao(info.dados.id).subscribe(
           (dados) => {
-            console.log(dados);
-
             this.permissoes = dados;
           }
         );
@@ -84,5 +83,28 @@ export class VisualicacaoComponent implements OnInit, OnDestroy {
         this.constucaoModal('Ocorreu um Erro', 'Tente mais Tarde', error);
       }
     );
+  }
+
+  getClass(tipo: number, pe: TipoPermissao) {
+    const permissao: string = pe.toString();
+    switch (tipo) {
+      case 1:
+        if ((permissao === 'R' ) || (permissao === 'RE') || (permissao === 'RED')) {
+          return { 'green' : true };
+        }
+        return {'red': true };
+
+      case 2:
+        if ((permissao === 'RE') || (permissao === 'RED')) {
+          return { 'green' : true };
+        }
+        return {'red': true };
+
+      case 3:
+        if (permissao === 'RED') {
+          return { 'green' : true };
+        }
+        return {'red': true };
+    }
   }
 }

@@ -16,9 +16,21 @@ small {
   }
 
 }
+
+article{
+  margin-bottom: 10px;
+}
 .alert{
   color: $vermelho;
 }
 .row{
   margin-right: -25px
+}
+
+.red{
+  color: $vermelho;
+}
+
+.green{
+  color: #28a745;
 }

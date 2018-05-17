@@ -8,6 +8,7 @@ const routesAdmin: Routes = [
     {path: 'categorias', loadChildren: 'app/admin/categoria/categoria.module#CategoriaModule'},
     {path: 'produtos', loadChildren: 'app/admin/produtos/produtos.module#ProdutosModule'},
     {path: 'permissoes', loadChildren: 'app/admin/permissao/permissao.module#PermissaoModule'},
+    {path: 'funcionario', loadChildren: 'app/admin/funcionario/funcionario.module#FuncionarioModule'},
   ]},
   {path: 'login', component: LoginComponent}
 ];
