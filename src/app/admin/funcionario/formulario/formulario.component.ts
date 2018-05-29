@@ -45,7 +45,9 @@ export class FormularioComponent implements OnInit {
     // Criando o formulario
     this.formulario = this.formBuilder.group({
       id: [null],
-      nome: [null, Validators.required]
+      name: [null, Validators.required],
+      senha: [null, Validators.required],
+      id_tipo_users: [null, Validators.required]
     });
 
     // Para poder auxliar o formulario
@@ -53,6 +55,7 @@ export class FormularioComponent implements OnInit {
 
     this.permissaoService.getTipoUsers().subscribe(
       (data) => {
+        console.log(data);
         this.permisao = data;
       }
     );
@@ -100,8 +103,8 @@ export class FormularioComponent implements OnInit {
         case 1:
           this.service.insertFuncionario(valor).subscribe(
             dados => {
-              this.criarModal('Cadastrado com Sucesso', 'A categoria foi cadastrado com sucesso.', null);
-              this.route.navigate(['/admin/categorias']);
+              this.criarModal('Cadastrado com Sucesso', 'A Funcionaeio foi cadastrado com sucesso.', null);
+              this.route.navigate(['/admin/funcionario']);
             },
             (error: any) => {
               this.criarModal('Ocorreu um Erro', 'Tente mais Tarde', error);
@@ -111,7 +114,7 @@ export class FormularioComponent implements OnInit {
         case 2:
           this.service.uploadFuncionario(valor, valor.id).subscribe(
             dados => {
-              this.criarModal('Editado com Sucesso', 'A editado foi cadastrado com sucesso.', null);
+              this.criarModal('Editado com Sucesso', 'A Funcionario foi editado com sucesso.', null);
               this.route.navigate(['/admin/categorias']);
             },
             (error: any) => {
@@ -127,7 +130,19 @@ export class FormularioComponent implements OnInit {
     this.openModal(modal);
   }
 
+  /*construirFuncionario() {
+    let valor = this.formulario.value;
+    console.log(valor);
+    let id_tipo_users = valor.permissao;
+    this.permisao.forEach(element => {
+      if (id_tipo_users === element.nome) {
+        id_tipo_users = element.id;
+      }
+    });
 
+    return valor;
+  }
+*/
   // Modal
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template);

@@ -16,7 +16,7 @@
               <strong><i class="fas fa-exclamation-triangle"></i> Atenção!</strong> Usuario ou Senha Invalidos.
             </div>
 
-            <form [formGroup]="formulario">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
               <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -26,9 +26,9 @@
                       <i class="fas fa-user"></i>
                     </div>
                   </div>
-                  <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Entre com seu Nome" [ngClass]="sharedForm.aplicarCssErro('nome')">
+                  <input type="text" class="form-control" id="nome" formControlName="name" placeholder="Entre com seu Nome" [ngClass]="sharedForm.aplicarCssErro('name')">
                 </div>
-                <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('nome')">Campo Obrigatório</small>
+                <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('name')">Campo Obrigatório</small>
               </div>
 
               <div class="form-group">
@@ -39,9 +39,9 @@
                       <i class="fas fa-key"></i>
                     </div>
                   </div>
-                  <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="Entre com sua Senha" [ngClass]="sharedForm.aplicarCssErro('senha')">
+                  <input type="password" class="form-control" id="senha" formControlName="password" placeholder="Entre com sua Senha" [ngClass]="sharedForm.aplicarCssErro('password')">
                 </div>
-                <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('senha')">Campo Obrigatório</small>
+                <small class="form-text text-danger" [hidden]="!sharedForm.verificaValidToucched('password')">Campo Obrigatório</small>
               </div>
               <br>
               <button type="submit" class="btn btn-primary col-12" [disabled]="formulario.invalid"><i class="fas fa-sign-in-alt"></i> Entrar</button>

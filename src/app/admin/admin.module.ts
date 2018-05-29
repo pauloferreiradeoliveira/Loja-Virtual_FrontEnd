@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 
@@ -9,10 +10,8 @@ import { AdminRoutes } from './admin.routing.module';
 import { LoginComponent } from './login/login.component';
 import { NavegacaoComponent } from './navegacao/navegacao.component';
 import { CategoriaModule } from './categoria/categoria.module';
-import { ComumMmodule } from '../comum/comum.module';
-
-
-
+import { ComumModule } from '../comum/comum.module';
+import { httpInterceptorProviders } from './shared/interceptors/interceptors';
 
 @NgModule({
   imports: [
@@ -21,7 +20,7 @@ import { ComumMmodule } from '../comum/comum.module';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    ComumMmodule
+    ComumModule
   ],
   declarations: [
     AdminComponent,

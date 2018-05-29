@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderModule } from './header/header.module';
 import { ComumModule } from '../comum/comum.module';
 import { CarrinhoService } from './shared/servicos/carrinho.service';
+import { CardComponent } from './shared/card/card.component';
 
 
 
@@ -28,7 +29,8 @@ import { CarrinhoService } from './shared/servicos/carrinho.service';
     PortalComponent,
     PrinciapalComponent,
     CategoriasComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent
   ],
   providers: [
     CategoriasResolver,

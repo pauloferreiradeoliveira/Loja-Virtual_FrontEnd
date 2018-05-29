@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CarrinhoService } from '../servicos/carrinho.service';
 import { Produto } from '../../../comum/class/produto';
-import { CarrinhoService } from '../../comum/servicos/carrinho.service';
+
 
 @Component({
   selector: 'app-card',
